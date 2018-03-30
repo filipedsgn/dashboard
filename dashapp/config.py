@@ -11,6 +11,8 @@
 #  -  16 = +/-0.256V
 # Padrão: 1
 
+# É possível mudar o endereço I2C padrão (0x48) e/ou barramento I2C passando os seguintes parâmentros opcionais:
+
 # Escolha o diretório onde contém os arquivos de dados
 # Padrão: /home/pi/dashapp/df.csv
 
@@ -21,6 +23,8 @@
 # Padrão: nenhum
 
 CFG = {
+    'endereco': 0x48,
+    'barramento': 0,
     'ganho': 1,
     'dados': r'/home/pi/dashapp/df.csv',
     'backup': r'/home/pi/BACKUP/dashapp/',
