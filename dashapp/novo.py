@@ -1,16 +1,28 @@
-import Adafruit_ADS1x15
+import .
+import pathlib
+import pandas as pd
 
+# Importa as configurações
 import config
 
-adc = Adafruit_ADS1x15.ADS1115()
 
-GAIN = 1
+def amostrar():
+      #Verifica se existe arquivo de dados
+      if not pathlib.Path(config.CFG['dados']).exists():
+            df =
 
-for i in range(4):
-      values[i] = adc.read_adc(i, gain=GAIN)
 
-while True:
-      df = {'c0temp': pd.Series(values[0], index=[pd.Timestamp.now()]),
-            'c0hum': pd.Series(values[1], index = [pd.Timestamp.now()]),
-            'c0lum': pd.Series(values[2], index=[pd.Timestamp.now()]),
-            }
+      # Cria uma instância da função do ADC
+      adc = ADS1x15()
+
+      # Amostra as entradas analógicas do conversor
+
+
+      while True:
+            for i in range(4):
+                  values[i] = adc.read_adc(i, gain=config.CFG['ganho'])
+
+            df = {'c0temp': pd.Series(values[0], index=[pd.Timestamp.now()]),
+                  'c0hum': pd.Series(values[1], index = [pd.Timestamp.now()]),
+                  'c0lum': pd.Series(values[2], index=[pd.Timestamp.now()]),
+                  }
