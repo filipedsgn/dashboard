@@ -1,6 +1,6 @@
-#teste adicionando dados ao dataset
-
 import Adafruit_ADS1x15
+
+import config
 
 adc = Adafruit_ADS1x15.ADS1115()
 

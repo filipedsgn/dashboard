@@ -26,3 +26,5 @@ Instale o ambiente desenvolvimento para trabalhar nos códigos (PyCharm Communit
 
     #No Ubuntu
     sudo snap install pycharm-community --classic
+
+## Adicionar como fazer integração do PyCharm com GitHub
