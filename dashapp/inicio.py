@@ -1,23 +1,16 @@
-import config #arquivo de configuração
-import datetime #datas e horas
-import pandas as pd #planilhas
-import backup
-import .
+# Primeiro programa a ser executado
+from dashapp import backup, amostragem
 
 # Verificar / Definir Timezone
-
 # A cada mês criar um arquivo novo de BACKUP
+# Verificar se quantos sensores estão conectados (valores zeros contínuos)
 
 
 # Fazer backup
 backup.bkup()
 
-# Verificar se quantos sensores estão conectados (valores zeros contínuos)
-#utilizar média de dataframe
+# Inicializa a amostragem
+amostragem.iniciar()
 
-
-#inicializa a amostragem
-novo.amostrar()
-
-#inicializa o app
-app()
+# Inicializa o app
+#app()

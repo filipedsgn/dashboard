@@ -1,4 +1,7 @@
 # -*- coding: utf-8 -*-
+# TODO: adicionar arquivo de alerta
+# TODO: adicionar arquivo de médias e perfil
+
 import dash
 import dash_core_components as dcc
 import dash_html_components as html

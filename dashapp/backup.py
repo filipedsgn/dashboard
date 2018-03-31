@@ -1,8 +1,10 @@
-import . # Importar outros módulos contidos no diretório
-import shutil # Realizar cópias dos arquivos para BACKUP
-import os # Criar diretórios
-import pathlib # Verificar a existência de arquivos
-import datetime as dt # Amostragem do tempo
+import datetime as dt  # Amostragem do tempo
+import os  # Criar diretórios
+import pathlib  # Verificar a existência de arquivos
+import shutil  # Realizar cópias dos arquivos para BACKUP
+
+from dashapp import config, erro
+
 
 # TODO: BACKUP mensal / semanal / diário
 
@@ -12,11 +14,13 @@ def bkup():
         agora = dt.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 
         # Indicar qual erro e quando aconteceu
-        erro(3, agora)
+        erro.tipo(3, agora)
         os.mkdir(config.CFG['backup'])
 
     # TODO: arrumar aqui, verificar se tem como fazer cópia direto com pandas
-    shutil.copy2(config.CFG['dados'], ((config.CFG['backup']) + str(datetime.datetime.now()) + '.csv'))
-    shutil.copy2(config.CFG['log'], ((config.CFG['backup']) + 'LOG-' + str(datetime.datetime.now()) + '.csv'))
+    shutil.copy2(config.CFG['dados'],
+                 ((config.CFG['backup']) + 'DAT-' + str(dt.datetime.now().strftime('%Y-%m-%dT%H:%M:%S')) + '.csv'))
+    shutil.copy2(config.CFG['log'],
+                 ((config.CFG['backup']) + 'LOG-' + str(dt.datetime.now().strftime('%Y-%m-%dT%H:%M:%S')) + '.csv'))
 
     # Enviar email com backup (utilizar biblioteca de email do python)

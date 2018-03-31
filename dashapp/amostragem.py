@@ -1,21 +1,25 @@
-import . # Importar outros módulos contidos no diretório
-import time # Pausar por 5 segundos TODO: método mais eficiênte? (possivel solução Threading)
-import pathlib # Verificar a existência de arquivos
-import pandas as pd # Manipulação de dados
-import datetime as dt # Amostragem do tempo
-import numpy as np # Célular vazias do panda TODO: útil?
+import datetime as dt  # Amostragem do tempo
+import pathlib  # Verificar a existência de arquivos
+import time  # Pausar por 5 segundos TODO: método mais eficiênte? (possivel solução Threading)
+
+import numpy as np  # Célular vazias do panda TODO: útil?
+import pandas as pd  # Manipulação de dados
+
+# TODO: arrumar importação do ADC
+from dashapp import ADS1X15, config, erro
+
 
 # TODO: adicionar coluna do sensor de gás (MQ-2), e antes de todos para ter preferência de alerta
 # TODO: salvar de tempos em tempos as amostragens em arquivos.csv
 # TODO: ver todo o código em passo a passo pra ver se ta na ordem correta
 
-def amostrar():
+def iniciar():
     # Verifica se existe arquivo de dados
     if not pathlib.Path(config.CFG['dados']).exists():
         agora = dt.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 
         # Indicar qual erro e quando aconteceu
-        erro(2, agora)
+        erro.tipo(2, agora)
 
         # Cria um dataframe
         (pd.DataFrame({'c0tem': np.nan,
@@ -25,7 +29,7 @@ def amostrar():
                        }, index=[agora])).to_csv(config.CFG['dados'])
 
     # Cria uma instância do objeto do conversor Anaógico-Digital
-    adc = ADS1115(config.CFG['endereco', config.CFG['barramento'])
+    adc = ADS1115(config.CFG['endereco'], config.CFG['barramento'])
 
     while True:
         # Captura o tempo atual

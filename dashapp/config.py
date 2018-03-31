@@ -1,4 +1,4 @@
-#Arquivo de configuração
+# Arquivo de configuração
 
 # TODO: escolher a quantidade de conversores
 # TODO: conferir tabela 3 do datasheet do ADS1115
