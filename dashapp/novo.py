@@ -1,52 +1,50 @@
-import .
-import time
-import pathlib
-import pandas as pd
-import datetime as dt
+import . # Importar outras módulos contidos no diretório
+import time # Pausar por 5 segundos TODO: método mais eficiênte? (possivel Threading)
+import pathlib # Verificar a existência de arquivos
+import pandas as pd # Manipulação de dados
+import datetime as dt # Amostragem do tempo
+import numpy as np # Célular vazias do panda TODO: útil?
 
 # Importa as configurações
 import config
 
-# TODO: colocar em um arquivo novo?
-# TODO: Timestamp.now() milisegundos não vai criar coisas separadas
 # TODO: adicionar coluna do sensor de gás (MQ-2), e antes de todos para ter preferência de alerta
-
-agora = dt.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-
-d = {'c0tem': pd.Series(values[0], index=[agora]),
-     'c0hum': pd.Series(values[1], index=[agora]),
-     'c0lum': pd.Series(values[2], index=[agora]),
-     'c0ext': pd.Series(values[3], index=[agora])
-     }
-
-df = pd.DataFrame(d, name='dados sensoriais')
-
 # TODO: salvar de tempos em tempos as amostragens em arquivos.csv
+# TODO: ver todo o código em passo a passo pra ver se ta na ordem correta
 
 def amostrar():
-      #Verifica se existe arquivo de dados
-      if not pathlib.Path(config.CFG['dados']).exists():
-            df =
+    # Verifica se existe arquivo de dados
+    if not pathlib.Path(config.CFG['dados']).exists():
+        agora = dt.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 
+        # Indicar qual erro e quando aconteceu
+        erro(3, agora)
 
-      # Cria uma instância da função do ADC
-      adc = ADS1115(config.CFG['endereco', config.CFG['barramento'])
+        # Cria um dataframe
+        (pd.DataFrame({'c0tem': np.nan,
+                       'c0hum': np.nan,
+                       'c0lum': np.nan,
+                       'c0ext': np.nan
+                       }, index=[agora])).to_csv(config.CFG['dados'])
 
-      # Amostra as entradas analógicas do conversor
+    # Cria uma instância do objeto do conversor Anaógico-Digital
+    adc = ADS1115(config.CFG['endereco', config.CFG['barramento'])
 
+    while True:
+        # Captura o tempo atual
+        agora = dt.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 
-      while True:
+        # Amostra as entradas analógicas do conversor
+        for i in range(4):
+            val[i] = adc.read_adc(i, gain=config.CFG['ganho'])
 
-            # TODO: remover milisegundos
-            agora = dt.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+        # TODO: verificar possibilidade de encurtar assim como linha 25
+        df = pd.DataFrame({'c0tem': val[0],
+                           'c0hum': val[1],
+                           'c0lum': val[2],
+                           'c0ext': val[3]
+                           }, index=[agora])
 
-            for i in range(4):
-                  values[i] = adc.read_adc(i, gain=config.CFG['ganho'])
+        df.to_csv(config.CFG['dados'], header=False, mode='a')
 
-            df.append(pd.DataFrame({'c0tem': pd.Series(values[0], index=[agora]),
-                                    'c0hum': pd.Series(values[1], index=[agora]),
-                                    'c0lum': pd.Series(values[2], index=[agora]),
-                                    'c0ext': pd.Series(values[3], index=[agora])
-                                    }), ignore_index=True))
-
-            time.sleep(5)
+        time.sleep(5)

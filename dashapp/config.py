@@ -26,7 +26,7 @@ CFG = {
     'endereco': 0x48,
     'barramento': 0,
     'ganho': 1,
-    'dados': r'/home/pi/dashapp/df.csv',
-    'backup': r'/home/pi/BACKUP/dashapp/',
+    'dados': r'dashapp/dados.csv',
+    'backup': r'BACKUP/dashapp/',
     'email': 'nenhum',
 }

@@ -6,9 +6,6 @@ import .
 
 # Verificar / Definir Timezone
 
-
-# Criar arquivo csv inicial se não existir
-
 # A cada mês criar um arquivo novo de BACKUP
 
 
