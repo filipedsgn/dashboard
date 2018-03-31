@@ -1,12 +1,9 @@
-import . # Importar outras módulos contidos no diretório
-import time # Pausar por 5 segundos TODO: método mais eficiênte? (possivel Threading)
+import . # Importar outros módulos contidos no diretório
+import time # Pausar por 5 segundos TODO: método mais eficiênte? (possivel solução Threading)
 import pathlib # Verificar a existência de arquivos
 import pandas as pd # Manipulação de dados
 import datetime as dt # Amostragem do tempo
 import numpy as np # Célular vazias do panda TODO: útil?
-
-# Importa as configurações
-import config
 
 # TODO: adicionar coluna do sensor de gás (MQ-2), e antes de todos para ter preferência de alerta
 # TODO: salvar de tempos em tempos as amostragens em arquivos.csv
@@ -18,7 +15,7 @@ def amostrar():
         agora = dt.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 
         # Indicar qual erro e quando aconteceu
-        erro(3, agora)
+        erro(2, agora)
 
         # Cria um dataframe
         (pd.DataFrame({'c0tem': np.nan,

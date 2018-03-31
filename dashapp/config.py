@@ -11,13 +11,20 @@
 #  -  16 = +/-0.256V
 # Padrão: 1
 
-# É possível mudar o endereço I2C padrão (0x48) e/ou barramento I2C passando os seguintes parâmentros opcionais:
+# Escolha do endereço I2C:
+# Padrão: 0x48
+
+# Escolha do barramento I2C:
+# Padrão: 0
 
 # Escolha o diretório onde contém os arquivos de dados
-# Padrão: /home/pi/dashapp/df.csv
+# Padrão: /dashapp/dados.csv
 
 # Escolha o diretório e o nome do arquivo de BACKUP
-# Padrão: /home/pi/BACKUP/dashapp/
+# Padrão: /BACKUP/dashapp/
+
+# Escolha o diretório e o nome do arquivo de log de erro
+# Padrão: /dashapp/log.csv
 
 # Escolha o email para o qual será enviado o arquivo de BACKUP
 # Padrão: nenhum
@@ -28,5 +35,6 @@ CFG = {
     'ganho': 1,
     'dados': r'dashapp/dados.csv',
     'backup': r'BACKUP/dashapp/',
+    'log': r'dashapp/log.csv',
     'email': 'nenhum',
 }
