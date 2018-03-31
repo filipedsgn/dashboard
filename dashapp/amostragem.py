@@ -12,6 +12,7 @@ from dashapp import ADS1X15, config, erro
 # TODO: adicionar coluna do sensor de gás (MQ-2), e antes de todos para ter preferência de alerta
 # TODO: salvar de tempos em tempos as amostragens em arquivos.csv
 # TODO: ver todo o código em passo a passo pra ver se ta na ordem correta
+# TODO: adicionar conversão de dados
 
 def iniciar():
     # Verifica se existe arquivo de dados

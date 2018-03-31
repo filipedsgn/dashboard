@@ -1,5 +1,6 @@
 # Arquivo de configuração
 
+# TODO: ver como se encontra os diretórios na prática
 # TODO: escolher a quantidade de conversores
 # TODO: conferir tabela 3 do datasheet do ADS1115
 # TODO: configurações de IP
@@ -10,7 +11,7 @@
 # Barramento I2C do ADC
 # Padrão: 0
 
-#Ganho:
+# Ganho:
 #  - 2/3 = +/-6.144V
 #  -   1 = +/-4.096V
 #  -   2 = +/-2.048V
