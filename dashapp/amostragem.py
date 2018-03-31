@@ -10,9 +10,6 @@ from dashapp import ADS1X15, config, erro
 
 
 # TODO: adicionar coluna do sensor de gás (MQ-2), e antes de todos para ter preferência de alerta
-# TODO: salvar de tempos em tempos as amostragens em arquivos.csv
-# TODO: ver todo o código em passo a passo pra ver se ta na ordem correta
-# TODO: adicionar conversão de dados
 
 def iniciar():
     # Verifica se existe arquivo de dados
@@ -40,7 +37,7 @@ def iniciar():
         for i in range(4):
             val[i] = adc.read_adc(i, gain=config.CFG['ganho'])
 
-        # TODO: verificar possibilidade de encurtar assim como linha 25
+        # TODO: verificar possibilidade de encurtar assim como linha 22
         df = pd.DataFrame({'c0tem': val[0],
                            'c0hum': val[1],
                            'c0lum': val[2],

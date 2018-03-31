@@ -6,8 +6,6 @@ import shutil  # Realizar cópias dos arquivos para BACKUP
 from dashapp import config, erro
 
 
-# TODO: BACKUP mensal / semanal / diário
-
 def bkup():
     # Verificar qual se o diretório de Backup foi localizado, senão, informar e criar um novo
     if not pathlib.Path(config.CFG['backup']).exists():

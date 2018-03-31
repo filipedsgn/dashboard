@@ -1,0 +1,15 @@
+# Arquivo de Backup Diário, Mensal, Anual (Diretórios?)
+
+# Arquivo para conversão de dados
+
+# Arquivo com plotagens utilizada pelo Dash
+
+# Configuração de Ganho no datasheet do ADS1115
+
+# Config.py com configuração de IP
+
+# Tornar OFFLINE
+
+# Arquivo com função de alerta
+
+# Arquivo com crição de média e perfil de uso

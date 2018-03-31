@@ -9,7 +9,6 @@ from dashapp import config
 # 1 Não existe arquivo de log de erro (erro.py)
 # 2 Arquivo de dados inexistente (amostragem.py)
 # 3 Arquivo de BACKUP inexistente (amostragem.py)
-# 4 TODO: email
 
 # TODO: adicionar alerta na página principal
 
