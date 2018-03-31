@@ -2,7 +2,15 @@
 
 # TODO: escolher a quantidade de conversores
 # TODO: conferir tabela 3 do datasheet do ADS1115
-# Escolha o Ganho:
+# TODO: configurações de IP
+
+# Endereço I2C do ADC
+# Padrão: 0x48
+
+# Barramento I2C do ADC
+# Padrão: 0
+
+#Ganho:
 #  - 2/3 = +/-6.144V
 #  -   1 = +/-4.096V
 #  -   2 = +/-2.048V
@@ -11,22 +19,19 @@
 #  -  16 = +/-0.256V
 # Padrão: 1
 
-# Escolha do endereço I2C do ADC
-# Padrão: 0x48
-
-# Escolha do barramento I2C do ADC
-# Padrão: 0
-
-# Escolha o diretório onde contém os arquivos de dados
+# Diretório onde contém os arquivos de dados
 # Padrão: /dashapp/dados.csv
 
-# Escolha o diretório e o nome do arquivo de BACKUP
+# Diretório e o nome do arquivo de BACKUP
 # Padrão: /BACKUP/dashapp/
 
-# Escolha o diretório e o nome do arquivo de log de erro
+# Diretório e o nome do arquivo de log de erro
 # Padrão: /dashapp/log.csv
 
-# Escolha o email para o qual será enviado o arquivo de BACKUP
+# Email para o qual será enviado o arquivo de BACKUP
+# Padrão: nenhum
+
+# Telefone para o qual será enviado mensagem de alerta
 # Padrão: nenhum
 
 CFG = {
@@ -37,4 +42,5 @@ CFG = {
     'backup': r'BACKUP/dashapp/',
     'log': r'dashapp/log.csv',
     'email': 'nenhum',
+    'telefone': 'nenhum'
 }
