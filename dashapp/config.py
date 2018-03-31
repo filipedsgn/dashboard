@@ -11,10 +11,10 @@
 #  -  16 = +/-0.256V
 # Padrão: 1
 
-# Escolha do endereço I2C:
+# Escolha do endereço I2C do ADC
 # Padrão: 0x48
 
-# Escolha do barramento I2C:
+# Escolha do barramento I2C do ADC
 # Padrão: 0
 
 # Escolha o diretório onde contém os arquivos de dados
