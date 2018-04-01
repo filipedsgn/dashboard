@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# TODO: tirar index de tempo e fazer uma coluna separada (ou talvez não)
+# TODO: tirar index de tempo e fazer uma coluna separada (ou talvez não)ls
 
 import dash
 import dash_core_components as dcc
@@ -11,19 +11,6 @@ import pandas as pd
 app = dash.Dash()
 
 df = pd.read_csv('~/Downloads/teste.csv')
-
-'''
-def generate_table(dataframe, max_rows=10):
-    return html.Table(
-        # Header
-        [html.Tr([html.Th(col) for col in dataframe.columns])] +
-
-        # Body
-        [html.Tr([
-            html.Td(dataframe.iloc[i][col]) for col in dataframe.columns
-        ]) for i in range(min(len(dataframe), max_rows))]
-    )
-'''
 
 app.layout = html.Div([
     dcc.Graph(
@@ -39,9 +26,34 @@ app.layout = html.Div([
     )
 ])
 
-if __name__ == '__main__':
-    #adicionado estilo css
-    app.css.append_css({"external_url": "https://codepen.io/chriddyp/pen/bWLwgP.css"})
-    app.run_server(debug=True)
+#RangeSlider
 
-    https://gist.githubusercontent.com/chriddyp/5d1ea79569ed194d432e56108a04d188/raw/a9f9e8076b837d541398e999dcbac2b2826a81f8/gdp-life-exp-2007.csv
+dcc.RangeSlider(
+    min = 0,
+    max = 7,
+    step = None,
+    marks = {
+        0: '8Hrs',
+        1: '5Hrs',
+        2: '2Hrs',
+        3: '1Hr',
+        4: '30min',
+        5: '15min',
+        6: '5min',
+        7: 'Agora'
+    },
+    value = [6, 7]
+)
+
+
+
+@call.callback(
+
+)
+
+def update_graph(
+
+)
+
+if __name__ == '__main__':
+    app.run_server(debug=True)

@@ -8,17 +8,17 @@ from dashapp import config, erro
 
 def bkup():
     # Verificar qual se o diretório de Backup foi localizado, senão, informar e criar um novo
-    if not pathlib.Path(config.CFG['backup']).exists():
+    if not pathlib.Path(config.CSV['backup']).exists():
         agora = dt.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 
         # Indicar qual erro e quando aconteceu
         erro.tipo(3, agora)
-        os.mkdir(config.CFG['backup'])
+        os.mkdir(config.CSV['backup'])
 
     # TODO: arrumar aqui, verificar se tem como fazer cópia direto com pandas
-    shutil.copy2(config.CFG['dados'],
-                 ((config.CFG['backup']) + 'DAT-' + str(dt.datetime.now().strftime('%Y-%m-%dT%H:%M:%S')) + '.csv'))
-    shutil.copy2(config.CFG['log'],
-                 ((config.CFG['backup']) + 'LOG-' + str(dt.datetime.now().strftime('%Y-%m-%dT%H:%M:%S')) + '.csv'))
+    shutil.copy2(config.CSV['dados'],
+                 ((config.CSV['backup']) + 'DAT-' + str(dt.datetime.now().strftime('%Y-%m-%dT%H:%M:%S')) + '.csv'))
+    shutil.copy2(config.CSV['log'],
+                 ((config.CSV['backup']) + 'LOG-' + str(dt.datetime.now().strftime('%Y-%m-%dT%H:%M:%S')) + '.csv'))
 
     # Enviar email com backup (utilizar biblioteca de email do python)

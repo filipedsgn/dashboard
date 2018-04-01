@@ -13,7 +13,7 @@ from dashapp import ADS1X15, config, erro
 
 def iniciar():
     # Verifica se existe arquivo de dados
-    if not pathlib.Path(config.CFG['dados']).exists():
+    if not pathlib.Path(config.CSV['dados']).exists():
         agora = dt.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 
         # Indicar qual erro e quando aconteceu
@@ -24,10 +24,10 @@ def iniciar():
                        'c0hum': np.nan,
                        'c0lum': np.nan,
                        'c0ext': np.nan
-                       }, index=[agora])).to_csv(config.CFG['dados'])
+                       }, index=[agora])).to_csv(config.CSV['dados'])
 
     # Cria uma instância do objeto do conversor Anaógico-Digital
-    adc = ADS1115(config.CFG['endereco'], config.CFG['barramento'])
+    adc = ADS1115(config.CSV['endereco'], config.CSV['barramento'])
 
     while True:
         # Captura o tempo atual
@@ -35,7 +35,7 @@ def iniciar():
 
         # Amostra as entradas analógicas do conversor
         for i in range(4):
-            val[i] = adc.read_adc(i, gain=config.CFG['ganho'])
+            val[i] = adc.read_adc(i, gain=config.ADC['ganho'])
 
         # TODO: verificar possibilidade de encurtar assim como linha 22
         df = pd.DataFrame({'c0tem': val[0],

@@ -1,44 +1,59 @@
 # Arquivo de configuração
 
 # ------------------------------------------------------
-# Endereço I2C do ADC
+# (ADC) Endereço I2C do ADC
 # Padrão: 0x48
 
-# Barramento I2C do ADC
+# (ADC) Barramento I2C do ADC
 # Padrão: 0
 
-# Ganho:
-#  - 2/3 = +/-6.144V
-#  -   1 = +/-4.096V
-#  -   2 = +/-2.048V
-#  -   4 = +/-1.024V
-#  -   8 = +/-0.512V
-#  -  16 = +/-0.256V
+# (ADC) Ganho:
+# 2/3 = +/-6.144V
+# 1 = +/-4.096V
+# 2 = +/-2.048V
+# 4 = +/-1.024V
+# 8 = +/-0.512V
+# 16 = +/-0.256V
 # Padrão: 1
 
-# Diretório onde contém os arquivos de dados
+# (CSV) Diretório onde contém os arquivos de dados
 # Padrão: ~/dashapp/dados.csv
 
-# Diretório e o nome do arquivo de BACKUP
+# (CSV) Diretório e o nome do arquivo de BACKUP
 # Padrão: ~/BACKUP/dashapp/
 
-# Diretório e o nome do arquivo de log de erro
+# (CSV) Diretório e o nome do arquivo de log de erro
 # Padrão: ~/dashapp/log.csv
 
-# Email para o qual será enviado o arquivo de BACKUP
+# (ALR) Email para o qual será enviado o arquivo de BACKUP
 # Padrão: nenhum
 
-# Telefone para o qual será enviado mensagem de alerta
+# (ALR) Telefone para o qual será enviado mensagem de alerta
 # Padrão: nenhum
+
+# (AMS) Tempo de amostragem do conversor
+# Padrão: 5s
 # ------------------------------------------------------
 
-CFG = {
+ADC = {
     'endereco': 0x48,
     'barramento': 0,
     'ganho': 1,
+}
+
+CSV = {
     'dados': r'~/dashapp/dados.csv',
     'backup': r'~/BACKUP/dashapp/',
     'log': r'~/dashapp/log.csv',
+}
+
+ALR = {
     'email': 'nenhum',
     'telefone': 'nenhum'
 }
+
+AMS = {
+    'amostragem': '5S'
+}
+
+
