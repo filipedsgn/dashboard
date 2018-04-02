@@ -6,7 +6,7 @@ import numpy as np  # Célular vazias do panda TODO: útil?
 import pandas as pd  # Manipulação de dados
 
 # TODO: arrumar importação do ADC
-from dashapp import ADS1X15, config, erro
+from dashapp import config, conversor, erro
 
 
 # TODO: adicionar coluna do sensor de gás (MQ-2), e antes de todos para ter preferência de alerta
@@ -26,8 +26,8 @@ def iniciar():
                        'c0ext': np.nan
                        }, index=[agora])).to_csv(config.CSV['dados'])
 
-    # Cria uma instância do objeto do conversor Anaógico-Digital
-    adc = ADS1115(config.CSV['endereco'], config.CSV['barramento'])
+    # Cria uma instância do objeto do conversor Analógico-Digital
+    adc = conversor.ADS1115(config.CSV['endereco'], config.CSV['barramento'])
 
     while True:
         # Captura o tempo atual
@@ -44,6 +44,6 @@ def iniciar():
                            'c0ext': val[3]
                            }, index=[agora])
 
-        df.to_csv(config.CFG['dados'], header=False, mode='a')
+        df.to_csv(config.CSV['dados'], header=False, mode='a')
 
         time.sleep(5)

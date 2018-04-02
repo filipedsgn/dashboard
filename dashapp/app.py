@@ -27,6 +27,7 @@ app.layout = html.Div([
 ])
 
 #RangeSlider
+#https://dash.plot.ly/getting-started-part-2
 
 dcc.RangeSlider(
     min = 0,
