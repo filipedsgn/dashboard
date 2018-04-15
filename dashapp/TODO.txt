@@ -21,3 +21,5 @@
 # Utilizar Tabs para os vários comodos da casa
 
 # Código para confirmação de Timezone local com a global (com/sem hórario de verão)
+
+# Colocar no título dos códigos licença MIT

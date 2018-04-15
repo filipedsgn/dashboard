@@ -1,6 +1,6 @@
 import time
 
-# Register and other configuration values:
+# Registradores e outros valores de configuração
 ADS1x15_DEFAULT_ADDRESS        = 0x48
 ADS1x15_POINTER_CONVERSION     = 0x00
 ADS1x15_POINTER_CONFIG         = 0x01
@@ -8,7 +8,7 @@ ADS1x15_POINTER_LOW_THRESHOLD  = 0x02
 ADS1x15_POINTER_HIGH_THRESHOLD = 0x03
 ADS1x15_CONFIG_OS_SINGLE       = 0x8000
 ADS1x15_CONFIG_MUX_OFFSET      = 12
-# Maping of gain values to config register values.
+# Mapear os valores de ganho para o valores de config do registrador
 ADS1x15_CONFIG_GAIN = {
     2/3: 0x0000,
     1:   0x0200,
@@ -20,7 +20,7 @@ ADS1x15_CONFIG_GAIN = {
 ADS1x15_CONFIG_MODE_CONTINUOUS  = 0x0000
 ADS1x15_CONFIG_MODE_SINGLE      = 0x0100
 
-# Mapping of data/sample rate to config register values for ADS1115.
+# Mapeamento de taxa de dados/amostra para valores de configuração do registrador ADS1115
 ADS1115_CONFIG_DR = {
     8:    0x0000,
     16:   0x0020,
@@ -47,7 +47,7 @@ class ADS1x15(object):
 
     def __init__(self, address=ADS1x15_DEFAULT_ADDRESS, i2c=None, **kwargs):
         if i2c is None:
-            import Adafruit_GPIO.I2C as I2C
+            import dashapp.I2C as I2C
             i2c = I2C
         self._device = i2c.get_i2c_device(address, **kwargs)
 

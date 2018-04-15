@@ -14,7 +14,7 @@ from dashapp import config
 
 def tipo(erro, tempo):
     # Verifica se existe arquivo de log de erros
-    if not pathlib.Path(config.CFG['log']).exists():
+    if not pathlib.Path(config.CSV['log']).exists():
         # Cria um log
         (pd.DataFrame({'Cod': 1,
                        'Erro': 'Log de erro criado'

@@ -2,7 +2,7 @@ import datetime as dt  # Amostragem do tempo
 import pathlib  # Verificar a existência de arquivos
 import time  # Pausar por 5 segundos TODO: método mais eficiênte? (possivel solução Threading)
 
-import numpy as np  # Célular vazias do panda TODO: útil?
+import numpy as np  # Celulas vazias do panda TODO: útil?
 import pandas as pd  # Manipulação de dados
 
 # TODO: arrumar importação do ADC
