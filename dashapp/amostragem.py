@@ -1,9 +1,9 @@
-import datetime as dt  # Amostragem do tempo
-import pathlib  # Verificar a existência de arquivos
-import time  # Pausar por 5 segundos TODO: método mais eficiênte? (possivel solução Threading)
+import datetime as dt
+import pathlib
+import time # TODO: método mais eficiênte? (possivel solução Threading)
 
-import numpy as np  # Celulas vazias do panda TODO: útil?
-import pandas as pd  # Manipulação de dados
+import numpy as np
+import pandas as pd
 
 # TODO: arrumar importação do ADC
 from dashapp import config, conversor, erro

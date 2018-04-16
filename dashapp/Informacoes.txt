@@ -4,3 +4,25 @@ Amostragem(12/min - a cada 5seg):
 1 dia = 572,3KiB (17280 amostragens)
 7 dias = 3,9MiB (120960 amostragens)
 30 dias = 16,8MiB (518400 amostragens)
+
+
+
+Pacotes externos instalados:
+    Adafruit_Python_GPIO                   https://github.com/adafruit/Adafruit_Python_GPIO
+    Adafruit_Python_ADS1x15         https://github.com/adafruit/Adafruit_Python_ADS1x15
+
+    numpy
+    pandas
+    git *
+    build-essentials *
+    python-dev *
+    python-smbus *
+    i2c-tools *
+
+Iniciar:
+    Conferir conexão com a rede local (WI-FI)
+        caso não consiga continue o programa e tente novamente em 30 seg (LED VERMELHO)
+
+    Realizar Backups
+    Iniciar Amostragem
+    Iniciar APP
