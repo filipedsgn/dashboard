@@ -26,7 +26,7 @@ Threading
 from threading import Thread
 
 class Th(Thread):
-    def __init__(self.num):
+    def __init__(self,num):
         super().__init__(self)
         self.num = num
     
