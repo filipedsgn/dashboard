@@ -42,7 +42,7 @@ ADS1x15_CONFIG_COMP_QUE = {
 ADS1x15_CONFIG_COMP_QUE_DISABLE = 0x0003
 
 
-class ADS1x15(object):
+class ADS1115(object):
     """Base functionality for ADS1x15 analog to digital converters."""
 
     def __init__(self, address=ADS1x15_DEFAULT_ADDRESS, i2c=None, **kwargs):
@@ -50,27 +50,6 @@ class ADS1x15(object):
             import dashapp.I2C as I2C
             i2c = I2C
         self._device = i2c.get_i2c_device(address, **kwargs)
-
-    def _data_rate_default(self):
-        """Retrieve the default data rate for this ADC (in samples per second).
-        Should be implemented by subclasses.
-        """
-        raise NotImplementedError('Subclasses must implement _data_rate_default!')
-
-    def _data_rate_config(self, data_rate):
-        """Subclasses should override this function and return a 16-bit value
-        that can be OR'ed with the config register to set the specified
-        data rate.  If a value of None is specified then a default data_rate
-        setting should be returned.  If an invalid or unsupported data_rate is
-        provided then an exception should be thrown.
-        """
-        raise NotImplementedError('Subclass must implement _data_rate_config function!')
-
-    def _conversion_value(self, low, high):
-        """Subclasses should override this function that takes the low and high
-        byte of a conversion result and returns a signed integer value.
-        """
-        raise NotImplementedError('Subclass must implement _conversion_value function!')
 
     def _read(self, mux, gain, data_rate, mode):
         """Perform an ADC read with the provided mux, gain, data_rate, and mode
@@ -111,12 +90,6 @@ class ADS1x15(object):
         # Perform a single shot read and set the mux value to the channel plus
         # the highest bit (bit 3) set.
         return self._read(channel + 0x04, gain, data_rate, ADS1x15_CONFIG_MODE_SINGLE)
-
-class ADS1115(ADS1x15):
-    """ADS1115 16-bit analog to digital converter instance."""
-
-    def __init__(self, *args, **kwargs):
-        super(ADS1115, self).__init__(*args, **kwargs)
 
     def _data_rate_default(self):
         # Default from datasheet page 16, config register DR bit default.

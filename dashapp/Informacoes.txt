@@ -6,6 +6,18 @@ Amostragem(12/min - a cada 5seg):
 30 dias = 16,8MiB (518400 amostragens)
 
 
+Conexões:
+    ADC:
+        VDD = 3v3
+        GND = GND
+        SCL = SCL1
+        SDA = SDA1
+
+    LED:
+        VERDE = GPIO18
+        VERMELHO = GPIO23
+
+
 
 Pacotes externos instalados:
     Adafruit_Python_GPIO                   https://github.com/adafruit/Adafruit_Python_GPIO

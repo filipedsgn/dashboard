@@ -1,6 +1,6 @@
 import datetime as dt
 import pathlib
-import time # TODO: método mais eficiênte? (possivel solução Threading)
+import time
 
 import numpy as np
 import pandas as pd
