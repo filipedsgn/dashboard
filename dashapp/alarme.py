@@ -1,11 +1,12 @@
-from dashapp import config
+from dashapp import config, inicio
 from RPi import GPIO
 from threading import Thread
 import time
 
-class LED(Thread):
+# TODO: dá uma lida em Daemon Threading
+class LEDIndicador(Thread):
     def __init__(self):
-        super().__init__(self)
+        super().__init__()
         GPIO.setmode(GPIO.BCM)
         GPIO.setwarnings(False)
         GPIO.setup((config.ALR['ledvm'], config.ALR['ledvr']), GPIO.OUT, initial=GPIO.LOW)
@@ -13,7 +14,7 @@ class LED(Thread):
 
     def run(self):
         While True:
-            if alerta == True:
+            if inicio.alerta == True:
                 GPIO.output(config.ALR['ledvm'], GPIO.HIGH)
                 time.sleep(1)
                 GPIO.output(config.ALR['ledvm'], GPIO.LOW)
@@ -35,7 +36,3 @@ def telefone():
 
 def dashAlerta():
     pass
-
-alerta = False
-led = LED()
-led.start()

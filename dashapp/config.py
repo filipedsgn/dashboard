@@ -1,4 +1,5 @@
 # Arquivo de configuração
+# TODO: completar com o restante das configurações
 
 # ------------------------------------------------------
 # (ADC) Endereço I2C do ADC

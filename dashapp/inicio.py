@@ -1,11 +1,14 @@
 # Primeiro programa a ser executado
-from dashapp import backup, amostragem
-from threading import Thread
+from dashapp import backup, amostragem, alarme
 
 # Verificar / Definir Timezone
 # A cada mês criar um arquivo novo de BACKUP
 # Verificar se quantos sensores estão conectados (valores zeros contínuos)
 
+# Inicia alarme luminoso
+alerta = False
+led = alarme.LEDIndicador()
+led.start()
 
 # Checar conexão com a internet
 
@@ -14,26 +17,8 @@ from threading import Thread
 backup.bkup()
 
 # Inicializa a amostragem
-amostragem.iniciar()
+amostrar = amostragem.Iniciar()
+amostrar.start()
 
 # Inicializa o app
 #app()
-
-
-'''
-Threading
-
-from threading import Thread
-
-class Th(Thread):
-    def __init__(self,num):
-        super().__init__(self)
-        self.num = num
-    
-    def run(self):
-        print('Hello')
-        print(self.num)
-        
-a = Th(1)
-a = start()
-'''
