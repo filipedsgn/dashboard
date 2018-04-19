@@ -36,10 +36,15 @@
 # Padrão: 5s
 # ------------------------------------------------------
 
+# TODO: arrumar isso aqui
 ADC = {
     'endereco': 0x48,
     'barramento': 0,
     'ganho': 1,
+    'temp': (ADC['tempCH'], ADC['tempSE'], ADC)
+    'humi': 1,
+    'lumi': 2,
+    'extr': 3
 }
 
 CSV = {

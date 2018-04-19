@@ -10,8 +10,6 @@
 
 # Tornar OFFLINE
 
-# Arquivo com função de alerta
-
 # Arquivo com crição de média e perfil de uso
 
 # Controle de amostragem no arquivo de configuração
@@ -23,7 +21,3 @@
 # Código para confirmação de Timezone local com a global (com/sem hórario de verão)
 
 # Colocar no título dos códigos licença MIT
-
-# Arquivo para conversao de valores para unidades
-
-# LED vermelho/verde status

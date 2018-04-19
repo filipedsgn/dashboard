@@ -14,11 +14,10 @@ extr = pd.DataFrame({'ext': np.random.randint(1024, size=100)}, index=dataindex)
 
 df = pd.concat([temp, umid, lumi, extr], axis=1)
 
-df.to_csv('~/Downloads/teste.csv')
-'''
+df.to_csv('~/Downloads/teste.csv')'''
 
 # Exemplo Threading
-
+'''
 import time
 from threading import Thread
 
@@ -41,3 +40,4 @@ ledzinho.start()
 while True:
     teste = not teste
     time.sleep(3)
+'''
