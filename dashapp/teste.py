@@ -18,7 +18,7 @@ df.to_csv('~/Downloads/teste.csv')
 '''
 
 # Exemplo Threading
-'''
+
 import time
 from threading import Thread
 
@@ -36,8 +36,8 @@ class LED(Thread):
 
 teste = 0
 ledzinho = LED()
+ledzinho.setDaemon(True)
 ledzinho.start()
 while True:
     teste = not teste
     time.sleep(3)
-'''

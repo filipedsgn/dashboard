@@ -8,6 +8,7 @@ from dashapp import backup, amostragem, alarme
 # Inicia alarme luminoso
 alerta = False
 led = alarme.LEDIndicador()
+led.setDaemon(True)
 led.start()
 
 # Checar conexão com a internet
@@ -18,6 +19,7 @@ backup.bkup()
 
 # Inicializa a amostragem
 amostrar = amostragem.Iniciar()
+amostrar.setDaemon(True)
 amostrar.start()
 
 # Inicializa o app

@@ -50,13 +50,9 @@ CSV = {
 
 ALR = {
     'email': 'nenhum',
-    'telefone': 'nenhum'
+    'telefone': 'nenhum',
     'ledvm': 23,
     'ledvr': 18,
-    'ledvmdc': ,
-    'ledvmfq': ,
-    'ledvddc': ,
-    'ledvrfq':
 }
 
 AMS = {

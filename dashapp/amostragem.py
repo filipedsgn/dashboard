@@ -6,11 +6,12 @@ from threading import Thread
 import numpy as np
 import pandas as pd
 
-# TODO: arrumar importação do ADC
 from dashapp import config, conversor, erro
 
-
 # TODO: adicionar coluna do sensor de gás (MQ-2), e antes de todos para ter preferência de alerta
+# TODO: adicionar locking no Thread?
+val = []
+
 
 class Iniciar(Thread):
     def __init__(self):
@@ -42,13 +43,10 @@ class Iniciar(Thread):
             for i in range(4):
                 val[i] = adc.read_adc(i, gain=config.ADC['ganho'])
 
-            # TODO: verificar possibilidade de encurtar assim como linha 22
-            df = pd.DataFrame({'c0tem': val[0],
-                               'c0hum': val[1],
-                               'c0lum': val[2],
-                               'c0ext': val[3]
-                               }, index=[agora])
-
-            df.to_csv(config.CSV['dados'], header=False, mode='a')
+            (pd.DataFrame({'c0tem': val[0],
+                           'c0hum': val[1],
+                           'c0lum': val[2],
+                           'c0ext': val[3]
+                           }, index=[agora])).to_csv(config.CSV['dados'], header=False, mode='a')
 
             time.sleep(5)
