@@ -3,7 +3,7 @@ import pathlib
 
 import pandas as pd
 
-from dashapp import config, inicio
+from . import config, inicio
 
 
 # ERROS

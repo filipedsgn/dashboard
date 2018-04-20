@@ -1,5 +1,5 @@
 import pandas as pd
-from dashapp import config
+from . import config
 
 
 # TODO: ver locais onde tem parenteses encapsulando objetos, desnecessariamente

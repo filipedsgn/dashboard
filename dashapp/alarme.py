@@ -5,7 +5,7 @@ from threading import Thread
 
 from RPi import GPIO
 
-from dashapp import config, inicio
+from . import config, inicio
 
 
 # TODO: Mudar o nome do arquivo

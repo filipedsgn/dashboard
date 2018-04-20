@@ -26,7 +26,7 @@ import logging
 import os
 import subprocess
 
-from dashapp import Platform
+from . import Platform
 
 
 def reverseByteOrder(data):

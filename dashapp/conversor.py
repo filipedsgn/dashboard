@@ -42,7 +42,7 @@ ADS1x15_CONFIG_COMP_QUE_DISABLE = 0x0003
 class ADS1115(object):
     def __init__(self, address=ADS1x15_DEFAULT_ADDRESS, i2c=None, **kwargs):
         if i2c is None:
-            import dashapp.I2C as I2C
+            from . import I2C
             i2c = I2C
 
         self._device = i2c.get_i2c_device(address, **kwargs)
