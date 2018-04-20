@@ -3,7 +3,7 @@ import os
 import pathlib
 import shutil
 
-from . import config, erro
+import config, erro
 
 
 def bkup():

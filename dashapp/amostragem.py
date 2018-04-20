@@ -6,7 +6,7 @@ from threading import Thread
 import numpy as np
 import pandas as pd
 
-from . import config, conversor, erro
+import config, conversor, erro
 
 
 # TODO: adicionar coluna do sensor de gás (MQ-2), e antes de todos para ter preferência de alerta

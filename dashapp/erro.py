@@ -3,7 +3,7 @@ import pathlib
 
 import pandas as pd
 
-from . import config, inicio
+import config, inicio
 
 
 # ERROS
