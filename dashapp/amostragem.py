@@ -8,9 +8,9 @@ import pandas as pd
 
 from dashapp import config, conversor, erro
 
+
 # TODO: adicionar coluna do sensor de gás (MQ-2), e antes de todos para ter preferência de alerta
 # TODO: adicionar locking no Thread?
-
 
 
 class Iniciar(Thread):
@@ -19,10 +19,9 @@ class Iniciar(Thread):
 
         # Verifica se existe arquivo de dados
         if not pathlib.Path(config.CSV['dados']).exists():
-            agora = dt.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-
             # Indicar qual erro e quando aconteceu
-            erro.tipo(2, agora)
+            erro.tipo(2)
+            agora = dt.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 
             # Cria um dataframe
             (pd.DataFrame({'c0tem': np.nan,
@@ -35,12 +34,17 @@ class Iniciar(Thread):
         # Cria uma instância do objeto do conversor Analógico-Digital
         self.adc = conversor.ADS1115(config.CSV['endereco'], config.CSV['barramento'])
 
-    def _interpolar(valor, emin, emax, dmin, dmax):
-        eSpan = emax - emin
-        dSpan = dmax - dmin
-        escala = float(valor - emin) / float(eSpan)
+        # Cria variáveis com as configurações
+        # TODO: Colocar isso no arquvo de config
+        self.tempConf = (config.ADC['nFS'], config.ADC['pFS'], config.ADC['tempMin'], config.ADC['tempMax'])
+        self.humiConf = (config.ADC['nFS'], config.ADC['pFS'], config.ADC['humiMin'], config.ADC['humiMax'])
+        self.lumiConf = (config.ADC['nFS'], config.ADC['pFS'], config.ADC['lumiMin'], config.ADC['lumiMax'])
+        self.extrConf = (config.ADC['nFS'], config.ADC['pFS'], config.ADC['extrMin'], config.ADC['extrMax'])
 
-        return dmin + (escala * dSpan)
+    @staticmethod
+    def interpolar(valor, min1, max1, min2, max2):
+        escala = float(valor - min1) / float(max1 - min1)
+        return (escala * (max2 - min2)) + min2
 
     def run(self):
         while True:
@@ -51,10 +55,10 @@ class Iniciar(Thread):
             for i in range(4):
                 self.canal[i] = self.adc.read_adc(i, gain=config.ADC['ganho'])
 
-            (pd.DataFrame({'c0tem': self._interpolar(self.canal[config.ADC['temp']],),
-                           'c0hum': self._interpolar(self.canal[config.ADC['humi']],),
-                           'c0lum': self._interpolar(self.canal[config.ADC['lumi']],),
-                           'c0ext': self._interpolar(self.canal[config.ADC['extr']],)
-                           }, index=[agora])).to_csv(config.CSV['dados'], header=False, mode='a')
+            pd.DataFrame({'c0tem': self.interpolar(self.canal[config.ADC['tempCH']], *self.tempConf),
+                          'c0hum': self.interpolar(self.canal[config.ADC['humiCH']], *self.humiConf),
+                          'c0lum': self.interpolar(self.canal[config.ADC['lumiCH']], *self.humiConf),
+                          'c0ext': self.interpolar(self.canal[config.ADC['extrCH']], *self.extrConf)
+                          }, index=[agora]).to_csv(config.CSV['dados'], header=False, mode='a')
 
             time.sleep(5)

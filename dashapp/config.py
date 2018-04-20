@@ -41,22 +41,20 @@ ADC = {
     'endereco': 0x48,
     'barramento': 0,
     'ganho': 1,
+    'pFS': 32767,
+    'nFS': 32768,
     'tempCH': 0,
     'humiCH': 1,
     'lumiCH': 2,
     'extrCH': 3,
-    'tempMin': ,
-    'tempMax': ,
-    'humiMin': ,
-    'humiMax': ,
-    'lumiMin': ,
-    'lumiMax': ,
-    'extrMin': ,
-    'extrMax': ,
-    'temp': (ADC['tempCH'], ADC['tempMin'], ADC['tempMax'], ADC[''])
-    'humi': (ADC['humiCH'], ADC['humiSE']),
-    'lumi': 2,
-    'extr': 3
+    'tempMin': 0,
+    'tempMax': 100,
+    'humiMin': 0,
+    'humiMax': 100,
+    'lumiMin': 0,
+    'lumiMax': 1000,
+    'extrMin': 0,
+    'extrMax': 100,
 }
 
 CSV = {
@@ -72,6 +70,7 @@ ALR = {
     'ledvr': 18,
 }
 
+# TODO: utilizado pra alguma coisa?
 AMS = {
     'amostragem': '5S'
 }

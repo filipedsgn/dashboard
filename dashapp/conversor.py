@@ -58,31 +58,34 @@ class ADS1115(object):
         config |= mode
 
         if data_rate is None:
-            data_rate = self._data_rate_default()
+            data_rate = self.data_rate_default()
 
-        config |= self._data_rate_config(data_rate)
+        config |= self.data_rate_config(data_rate)
         config |= ADS1x15_CONFIG_COMP_QUE_DISABLE
         self._device.writeList(ADS1x15_POINTER_CONFIG, [(config >> 8) & 0xFF, config & 0xFF])
         time.sleep(1.0 / data_rate + 0.0001)
         result = self._device.readList(ADS1x15_POINTER_CONVERSION, 2)
 
-        return self._conversion_value(result[1], result[0])
+        return self.conversion_value(result[1], result[0])
 
     def read_adc(self, channel, gain=1, data_rate=None):
         assert 0 <= channel <= 3, 'Channel must be a value within 0-3!'
 
         return self._read(channel + 0x04, gain, data_rate, ADS1x15_CONFIG_MODE_SINGLE)
 
-    def _data_rate_default(self):
+    @staticmethod
+    def data_rate_default():
         return 128
 
-    def _data_rate_config(self, data_rate):
+    @staticmethod
+    def data_rate_config(data_rate):
         if data_rate not in ADS1115_CONFIG_DR:
             raise ValueError('Data rate must be one of: 8, 16, 32, 64, 128, 250, 475, 860')
 
         return ADS1115_CONFIG_DR[data_rate]
 
-    def _conversion_value(self, low, high):
+    @staticmethod
+    def conversion_value(low, high):
         value = ((high & 0xFF) << 8) | (low & 0xFF)
 
         if value & 0x8000 != 0:

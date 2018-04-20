@@ -21,3 +21,5 @@
 # Código para confirmação de Timezone local com a global (com/sem hórario de verão)
 
 # Colocar no título dos códigos licença MIT
+
+# Evitar usar From IMport

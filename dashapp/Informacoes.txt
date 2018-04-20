@@ -5,6 +5,10 @@ Amostragem(12/min - a cada 5seg):
 7 dias = 3,9MiB (120960 amostragens)
 30 dias = 16,8MiB (518400 amostragens)
 
+ADC:
+    +FS = 7FFFh 32767d
+    -FS = 8000h 32768d
+
 
 Conexões:
     ADC:
@@ -17,7 +21,13 @@ Conexões:
         VERDE = GPIO18
         VERMELHO = GPIO23
 
+    LM35:
+        PIN1 = 5V
+        PIN2 = A0 ADC(ADS1115)
+        PIN3 = GND
 
+Câmera:
+    https://www.raspberrypi.org/documentation/raspbian/applications/camera.md
 
 Pacotes externos instalados:
     Adafruit_Python_GPIO                   https://github.com/adafruit/Adafruit_Python_GPIO

@@ -1,9 +1,8 @@
-# MFM TCC grupo
-Como utilizar esse repósitório
+# Grupo MF
 
 ## Instalação
 
-Instale e crie uma máquina virtual para isolar seu computador do ambiente de trabalho do TCC:
+Instale e crie uma máquina virtual para isolar seu computador do ambiente de trabalho:
 
     sudo apt-get install virtualenv git build-essential python-dev
     mkdir ~/Documentos/tcc && cd ~/Documentos/tcc
@@ -27,4 +26,4 @@ Instale o ambiente desenvolvimento para trabalhar nos códigos (PyCharm Communit
     #No Ubuntu
     sudo snap install pycharm-community --classic
 
-## Adicionar como fazer integração do PyCharm com GitHub
+## Integrar IDLE com GitHub

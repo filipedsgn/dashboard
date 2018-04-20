@@ -1,10 +1,16 @@
-from dashapp import config, inicio
-from RPi import GPIO
-from threading import Thread
+import datetime as dt
+import subprocess
 import time
+from threading import Thread
+
+from RPi import GPIO
+
+from dashapp import config, inicio
 
 
-class LEDIndicador(Thread):
+# TODO: Mudar o nome do arquivo
+
+class LedIndicador(Thread):
     def __init__(self):
         super().__init__()
         GPIO.setmode(GPIO.BCM)
@@ -26,6 +32,27 @@ class LEDIndicador(Thread):
                 time.sleep(5)
 
 
+class Camera(Thread):
+    def __init__(self):
+        super().__init__()
+
+    @staticmethod
+    def foto():
+        agora = dt.datetime.now().strftime('%Y-%m-%dT%H:%M:%S')
+
+        subprocess.run(['raspistill', '-a', '12', agora, '.jpg', '-n'])
+
+    # TODO: implementar isso aqui
+
+
+'''
+    def video(self):
+        agora = dt.datetime.now().strftime('%Y-%m-%dT%H:%M:%S')
+
+        subprocess.run(['raspivid', '-a', '12', agora, '.h264', '-n'])
+'''
+
+
 def email():
     # config.ALR['email']
     pass
@@ -36,5 +63,5 @@ def telefone():
     pass
 
 
-def dashAlerta():
+def dash_alerta():
     pass

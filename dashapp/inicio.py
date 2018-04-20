@@ -1,3 +1,6 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
 # Primeiro programa a ser executado
 from dashapp import backup, amostragem, alarme
 
@@ -7,7 +10,7 @@ from dashapp import backup, amostragem, alarme
 
 # Inicia alarme luminoso
 alerta = False
-led = alarme.LEDIndicador()
+led = alarme.LedIndicador()
 led.setDaemon(True)
 led.start()
 
@@ -23,4 +26,4 @@ amostrar.setDaemon(True)
 amostrar.start()
 
 # Inicializa o app
-#app()
+# app()
