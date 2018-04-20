@@ -40,7 +40,10 @@ class Camera(Thread):
     def foto():
         agora = dt.datetime.now().strftime('%Y-%m-%dT%H:%M:%S')
 
-        subprocess.run(['raspistill', '-a', '12', agora, '.jpg', '-n'])
+        # TODO: salvar em diretorio especifico
+        # TODO: deixar em aberto ou singleshots?
+        # TODO: fast shutter?
+        subprocess.run(['raspistill', '-a', '12', '-md', '1', '-o' , agora + '.jpg', '-n', '-t', '1000'])
 
     # TODO: implementar isso aqui
 
