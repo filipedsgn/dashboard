@@ -18,12 +18,12 @@ class Iniciar(Thread):
         super().__init__()
 
         # Verifica se existe arquivo de dados
-        if not pathlib.Path(config.CSV['dados']).exists():
+        if not pathlib.Path(config.FIL['dados']).exists():
             # Indicar qual erro
             erro.tipo(2)
 
             # Cria diretório de dados caso não exista
-            pathlib.Path(config.CSV['dadosDir']).mkdir(parents=True, exist_ok=True)
+            pathlib.Path(config.FIL['dadosDir']).mkdir(parents=True, exist_ok=True)
 
             agora = dt.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 
@@ -32,17 +32,13 @@ class Iniciar(Thread):
                            'c0hum': np.nan,
                            'c0lum': np.nan,
                            'c0ext': np.nan
-                           }, index=[agora])).to_csv(config.CSV['dados'])
+                           }, index=[agora])).to_csv(config.FIL['dados'])
 
         # Cria uma instância do objeto do conversor Analógico-Digital
         self.adc = conversor.ADS1115()
 
         # Cria variáveis com as configurações
         # TODO: Colocar isso no arquvo de config
-        self.tempConf = (config.ADC['nFS'], config.ADC['pFS'], config.ADC['tempMin'], config.ADC['tempMax'])
-        self.humiConf = (config.ADC['nFS'], config.ADC['pFS'], config.ADC['humiMin'], config.ADC['humiMax'])
-        self.lumiConf = (config.ADC['nFS'], config.ADC['pFS'], config.ADC['lumiMin'], config.ADC['lumiMax'])
-        self.extrConf = (config.ADC['nFS'], config.ADC['pFS'], config.ADC['extrMin'], config.ADC['extrMax'])
 
     @staticmethod
     def interpolar(valor, min1, max1, min2, max2):
@@ -59,10 +55,10 @@ class Iniciar(Thread):
             for i in range(4):
                 canal[i] = self.adc.read_adc(i, gain=config.ADC['ganho'])
 
-            pd.DataFrame({'c0tem': self.interpolar(canal[config.ADC['tempCH']], *self.tempConf),
-                          'c0hum': self.interpolar(canal[config.ADC['humiCH']], *self.humiConf),
-                          'c0lum': self.interpolar(canal[config.ADC['lumiCH']], *self.humiConf),
-                          'c0ext': self.interpolar(canal[config.ADC['extrCH']], *self.extrConf)
-                          }, index=[agora]).to_csv(config.CSV['dados'], header=False, mode='a')
+            pd.DataFrame({'c0tem': self.interpolar(canal[config.ADC['tempCH']], *config.ADC['tempConfig']),
+                          'c0hum': self.interpolar(canal[config.ADC['humiCH']], *config.ADC['humiConfig']),
+                          'c0lum': self.interpolar(canal[config.ADC['lumiCH']], *config.ADC['lumiConfig']),
+                          'c0ext': self.interpolar(canal[config.ADC['extrCH']], *config.ADC['extrConfig'])
+                          }, index=[agora]).to_csv(config.FIL['dados'], header=False, mode='a')
 
-            time.sleep(5)
+            time.sleep(config.ADC['amostragem'])

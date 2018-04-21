@@ -12,7 +12,7 @@ from lib import alarme, amostragem, backup, config
 # Cria os diretórios
 pathlib.Path(config.CSV['dadosBkupDir']).mkdir(parents=True, exist_ok=True)
 
-# Inicia alarme luminoso
+# Inicia led de indicação
 led = alarme.Led()
 led.setDaemon(True)
 led.start()

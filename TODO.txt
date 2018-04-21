@@ -27,3 +27,5 @@
 # Evitar usar From IMport
 
 # Contador de reinicialização
+
+# Simplificar o uso do ADC, muito complexo deve ter jeito mais rapido

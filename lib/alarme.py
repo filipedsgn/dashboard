@@ -38,30 +38,33 @@ class Camera(Thread):
     def __init__(self):
         super().__init__()
 
-    def foto(self):
+    @staticmethod
+    def foto():
         # TODO: salvar em diretorio especifico
         # TODO: deixar em aberto ou singleshots?
         # TODO: fast shutter?
+        # TODO: configurar modos
 
         # Criar diretório de fotos caso não existir
-        pathlib.Path(config.CSV['fotos']).mkdir(parents=True, exist_ok=True)
+        pathlib.Path(config.FIL['fotos']).mkdir(parents=True, exist_ok=True)
 
-        subprocess.run(['raspistill', '-a', '12', '-md', '1', '-o', config.CSV['fotos'] + '/' +
+        subprocess.run(['raspistill', '-a', '12', '-md', '1', '-o', config.FIL['fotos'] + '/' +
                         dt.datetime.now().strftime('%Y-%m-%dT%H:%M:%S') + '.jpg', '-n', '-t', '1000'])
+
+        # TODO: implementar isso aqui
 
     def run(self):
         pass
 
 
-# TODO: implementar isso aqui
-'''
-    def video(self):
+''''
+    def video(self, tempo):
         agora = dt.datetime.now().strftime('%Y-%m-%dT%H:%M:%S')
 
         subprocess.run(['raspivid', '-a', '12', agora, '.h264', '-n'])
 '''
 
-
+'''
 def email():
     # config.ALR['email']
     pass
@@ -74,3 +77,4 @@ def telefone():
 
 def dash_alerta():
     pass
+'''

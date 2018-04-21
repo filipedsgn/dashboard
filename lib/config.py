@@ -2,12 +2,6 @@
 # TODO: completar com o restante das configurações
 
 # ------------------------------------------------------
-# (ADC) Endereço I2C do ADC
-# Padrão: 0x48
-
-# (ADC) Barramento I2C do ADC
-# Padrão: 0
-
 # (ADC) Ganho:
 # 2/3 = +/-6.144V
 # 1 = +/-4.096V
@@ -17,56 +11,95 @@
 # 16 = +/-0.256V
 # Padrão: 1
 
-# (CSV) Diretório onde contém os arquivos de dados
-# Padrão: ~/dashboard/dados.csv
+# (ADC - amostragem) Intervalo em segundos de cada amostragem
+# Padrão: 5
 
-# (CSV) Diretório e o nome do arquivo de BACKUP
-# Padrão: ~/BACKUP/dashboard/
+# (ADC - tempCH) Canal do ADC conectado ao sensor de temperatura
+# Padrão: 0
 
-# (CSV) Diretório e o nome do arquivo de log de erro
-# Padrão: ~/dashboard/log.csv
+# (ADC - humiCH) Canal do ADC conectado ao sensor de humidade
+# Padrão: 1
 
-# (ALR) Email para o qual será enviado o arquivo de BACKUP
+# (ADC - lumiCH) Canal do ADC conectado ao sensor de luminosidade
+# Padrão: 2
+
+# (ADC - extrCH) Canal do ADC conectado ao sensor extra
+# Padrão: 3
+
+# TODO: arrumar aqui os limites do adc
+# (ADC - tempConfig) Parâmetros de configuração ADC da temperatura
+# min_ADC - max_ADC - min_temp - max_temp
+# Padrão: (0, 100, 0, 100)
+
+# (ADC - humiConfig) Parâmetros de configuração ADC da humidade
+# min_ADC - max_ADC - min_humi - max_humi
+# Padrão: (0, 100, 0, 100)
+
+# (ADC - lumiConfig) Parâmetros de configuração ADC da luminosidade
+# min_ADC - max_ADC - min_lumi - max_lumi
+# Padrão: (0, 100, 0, 100)
+
+# (ADC - extrConfig) Parâmetros de configuração ADC da extra
+# min_ADC - max_ADC - min_extr - max_extr
+# Padrão: (0, 100, 0, 100)
+
+# (FIL - dadosDir) Diretório onde contem o arquivo de dados
+# Padrão: /home/pi/dashboard/DADOS
+
+# (FIL - dados) Arquivo de dados
+# Padrão: /home/pi/dashboard/DADOS/dados.csv
+
+# (FIL - log) Diretório e o nome do arquivo de log de erro
+# Padrão: /home/pi/dashboard/DADOS/log.csv
+
+# (FIL - fotos) Diretório de fotos
+# Padrão: /home/pi/dashboard/DADOS/log.csv
+
+# (FIL - fotosBkupDir) Diretório de backup de fotos
+# Padrão: /home/pi/BACKUP/dashboard/fotos
+
+# (FIL - dadosBkupDir) Diretório de backup de fotos
+# Padrão: /home/pi/BACKUP/dashboard/dados
+
+# (ALR - email) Email para o qual será enviado o arquivo de BACKUP
 # Padrão: nenhum
 
-# (ALR) Telefone para o qual será enviado mensagem de alerta
+# (ALR - telefone) Telefone para o qual será enviado mensagem de alerta
 # Padrão: nenhum
 
-# (AMS) Tempo de amostragem do conversor
-# Padrão: 5s
+# (ALR - ledvm) pino de saída do LED vermelho (padrão GPIO.BCM)
+# Padrão: 23
+
+# (ALR - ledvr) pino de saída do LED verde (padrão GPIO.BCM)
+# Padrão: 18
 # ------------------------------------------------------
 
-# TODO: definindo o barramento é provavel descartar o modulo I2C e seus chamdos
-# TODO: arrumar isso aqui
-# TODO: não utilizando endereço e barramento
+# Algo do conversor
+#'pFS': 32767,
+#'nFS': 32768,
+
+
+# TODO: configurar ganho
 
 ADC = {
-    'endereco': 0x48,
-    'barramento': 1,
-    'ganho': 1,
-    'pFS': 32767,
-    'nFS': 32768,
+    'amostragem': 5,
     'tempCH': 0,
     'humiCH': 1,
     'lumiCH': 2,
     'extrCH': 3,
-    'tempMin': 0,
-    'tempMax': 100,
-    'humiMin': 0,
-    'humiMax': 100,
-    'lumiMin': 0,
-    'lumiMax': 1000,
-    'extrMin': 0,
-    'extrMax': 100,
+    'tempConfig': (0, 32767, 0, 100),
+    'humiConfig': (0, 32767, 0, 100),
+    'lumiConfig': (0, 32767, 0, 100),
+    'extrConfig': (0, 32737, 0, 100),
 }
 
-CSV = {
+FIL = {
     'dadosDir': r'/home/pi/dashboard/DADOS',
     'dados': r'/home/pi/dashboard/DADOS/dados.csv',
     'log': r'/home/pi/dashboard/DADOS/log.csv',
+    'fotos': r'/home/pi/dashboard/DADOS/fotos',
     'fotosBkupDir': r'/home/pi/BACKUP/dashboard/fotos',
-    'dadosBkupDir': r'/home/pi/BACKUP/dashboard/dados',
-    'fotos': r'/home/pi/dashboard/DADOS/fotos'
+    'dadosBkupDir': r'/home/pi/BACKUP/dashboard/dados'
 }
 
 ALR = {
@@ -75,9 +108,3 @@ ALR = {
     'ledvm': 23,
     'ledvr': 18,
 }
-
-# TODO: utilizado pra alguma coisa?
-AMS = {
-    'amostragem': '5S'
-}
-
