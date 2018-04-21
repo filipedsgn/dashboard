@@ -61,9 +61,12 @@ ADC = {
 }
 
 CSV = {
-    'dados': r'/home/pi/dashboard/dados.csv',
-    'backup': r'/home/pi/BACKUP/dashboard/',
-    'log': r'/home/pi/dashboard/log.csv',
+    'dadosDir': r'/home/pi/dashboard/DADOS',
+    'dados': r'/home/pi/dashboard/DADOS/dados.csv',
+    'log': r'/home/pi/dashboard/DADOS/log.csv',
+    'fotosBkupDir': r'/home/pi/BACKUP/dashboard/fotos',
+    'dadosBkupDir': r'/home/pi/BACKUP/dashboard/dados',
+    'fotos': r'/home/pi/dashboard/DADOS/fotos'
 }
 
 ALR = {

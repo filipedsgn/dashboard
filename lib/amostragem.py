@@ -19,8 +19,12 @@ class Iniciar(Thread):
 
         # Verifica se existe arquivo de dados
         if not pathlib.Path(config.CSV['dados']).exists():
-            # Indicar qual erro e quando aconteceu
+            # Indicar qual erro
             erro.tipo(2)
+
+            # Cria diretório de dados caso não exista
+            pathlib.Path(config.CSV['dadosDir']).mkdir(parents=True, exist_ok=True)
+
             agora = dt.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 
             # Cria um dataframe

@@ -25,3 +25,5 @@
 # Colocar no título dos códigos licença MIT
 
 # Evitar usar From IMport
+
+# Contador de reinicialização

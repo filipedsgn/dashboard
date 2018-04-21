@@ -13,13 +13,14 @@ from lib import alarme, config
 # 4 Não foi possível estabelecer conexão com a rede local (inicio.py)
 
 # TODO: adicionar alerta na página principal
+# TODO: ver quais erros ainda estão valendo
 
 def tipo(erro):
     # Captura tempo atual para registro de erro
     agora = dt.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 
     # Verifica se existe arquivo de log de erros
-    if not pathlib.Path(config.CSV['log']).exists():
+    if not pathlib.Path(config.CSV['log']).exists() or erro == 1:
         alarme.alerta = True
         (pd.DataFrame({'Cod': 1, 'Erro': 'Log de erro criado'
                        }, index=[agora])).to_csv(config.CSV['log'])

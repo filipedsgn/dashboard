@@ -1,6 +1,7 @@
 import datetime as dt
 import subprocess
 import time
+import pathlib
 from threading import Thread
 
 from RPi import GPIO
@@ -10,7 +11,7 @@ from lib import config
 
 # TODO: Mudar o nome do arquivo
 
-class LedIndicador(Thread):
+class Led(Thread):
     def __init__(self):
         super().__init__()
         self.alerta = False
@@ -37,18 +38,22 @@ class Camera(Thread):
     def __init__(self):
         super().__init__()
 
-    @staticmethod
-    def foto():
-        agora = dt.datetime.now().strftime('%Y-%m-%dT%H:%M:%S')
-
+    def foto(self):
         # TODO: salvar em diretorio especifico
         # TODO: deixar em aberto ou singleshots?
         # TODO: fast shutter?
-        subprocess.run(['raspistill', '-a', '12', '-md', '1', '-o' , agora + '.jpg', '-n', '-t', '1000'])
 
-    # TODO: implementar isso aqui
+        # Criar diretório de fotos caso não existir
+        pathlib.Path(config.CSV['fotos']).mkdir(parents=True, exist_ok=True)
+
+        subprocess.run(['raspistill', '-a', '12', '-md', '1', '-o', config.CSV['fotos'] +
+                        dt.datetime.now().strftime('%Y-%m-%dT%H:%M:%S') + '.jpg', '-n', '-t', '1000'])
+
+    def run(self):
+        pass
 
 
+# TODO: implementar isso aqui
 '''
     def video(self):
         agora = dt.datetime.now().strftime('%Y-%m-%dT%H:%M:%S')
