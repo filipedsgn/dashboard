@@ -9,7 +9,6 @@ from lib import backup, amostragem, alarme
 # Verificar se quantos sensores estão conectados (valores zeros contínuos)
 
 # Inicia alarme luminoso
-alerta = False
 led = alarme.LedIndicador()
 led.setDaemon(True)
 led.start()

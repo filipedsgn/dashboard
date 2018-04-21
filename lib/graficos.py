@@ -1,5 +1,5 @@
 import pandas as pd
-import config
+from lib import config
 
 
 # TODO: ver locais onde tem parenteses encapsulando objetos, desnecessariamente
