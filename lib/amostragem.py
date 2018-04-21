@@ -32,7 +32,7 @@ class Iniciar(Thread):
 
         self.canal = []
         # Cria uma instância do objeto do conversor Analógico-Digital
-        self.adc = conversor.ADS1115(config.CSV['endereco'], config.CSV['barramento'])
+        self.adc = conversor.ADS1115()
 
         # Cria variáveis com as configurações
         # TODO: Colocar isso no arquvo de config

@@ -30,16 +30,12 @@ Câmera:
     https://www.raspberrypi.org/documentation/raspbian/applications/camera.md
 
 Pacotes externos instalados:
-    Adafruit_Python_GPIO                   https://github.com/adafruit/Adafruit_Python_GPIO
-    Adafruit_Python_ADS1x15         https://github.com/adafruit/Adafruit_Python_ADS1x15
+    Adafruit_PureIO                 https://github.com/adafruit/Adafruit_Python_PureIO  (smbus)
+    Adafruit_Python_GPIO            https://github.com/adafruit/Adafruit_Python_GPIO    (I2C)
+    Adafruit_Python_ADS1x15         https://github.com/adafruit/Adafruit_Python_ADS1x15 (ADS1x15)
 
-    numpy
-    pandas
-    git *
-    build-essentials *
-    python-dev *
-    python-smbus *
-    i2c-tools *
+    numpy(1.12.1)                   instalado por padrão no raspberry pi
+    pandas(0.19.2)                  instalado por sudo apt-get install python3-pandas
 
 Iniciar:
     Conferir conexão com a rede local (WI-FI)
@@ -48,3 +44,7 @@ Iniciar:
     Realizar Backups
     Iniciar Amostragem
     Iniciar APP
+
+Raspberry:
+    https://elinux.org/RPi_HardwareHistory#Board_Revision_History
+

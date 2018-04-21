@@ -38,6 +38,8 @@
 
 # TODO: definindo o barramento é provavel descartar o modulo I2C e seus chamdos
 # TODO: arrumar isso aqui
+# TODO: não utilizando endereço e barramento
+
 ADC = {
     'endereco': 0x48,
     'barramento': 1,
@@ -59,9 +61,9 @@ ADC = {
 }
 
 CSV = {
-    'dados': r'~/dashboard/dados.csv',
-    'backup': r'~/BACKUP/dashboard/',
-    'log': r'~/dashboard/log.csv',
+    'dados': r'/home/pi/dashboard/dados.csv',
+    'backup': r'/home/pi/BACKUP/dashboard/',
+    'log': r'/home/pi/dashboard/log.csv',
 }
 
 ALR = {
