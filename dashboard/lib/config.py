@@ -18,13 +18,13 @@
 # Padrão: 1
 
 # (CSV) Diretório onde contém os arquivos de dados
-# Padrão: ~/dashapp/dados.csv
+# Padrão: ~/dashboard/dados.csv
 
 # (CSV) Diretório e o nome do arquivo de BACKUP
-# Padrão: ~/BACKUP/dashapp/
+# Padrão: ~/BACKUP/dashboard/
 
 # (CSV) Diretório e o nome do arquivo de log de erro
-# Padrão: ~/dashapp/log.csv
+# Padrão: ~/dashboard/log.csv
 
 # (ALR) Email para o qual será enviado o arquivo de BACKUP
 # Padrão: nenhum
@@ -59,9 +59,9 @@ ADC = {
 }
 
 CSV = {
-    'dados': r'~/dashapp/dados.csv',
-    'backup': r'~/BACKUP/dashapp/',
-    'log': r'~/dashapp/log.csv',
+    'dados': r'~/dashboard/dados.csv',
+    'backup': r'~/BACKUP/dashboard/',
+    'log': r'~/dashboard/log.csv',
 }
 
 ALR = {

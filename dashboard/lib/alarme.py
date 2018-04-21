@@ -5,7 +5,7 @@ from threading import Thread
 
 from RPi import GPIO
 
-import config, inicio
+import config
 
 
 # TODO: Mudar o nome do arquivo

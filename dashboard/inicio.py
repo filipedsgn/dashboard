@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 # Primeiro programa a ser executado
-import backup, amostragem, alarme
+from lib import backup, amostragem, alarme
 
 # Verificar / Definir Timezone
 # A cada mês criar um arquivo novo de BACKUP
