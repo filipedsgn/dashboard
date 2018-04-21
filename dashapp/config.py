@@ -36,10 +36,11 @@
 # Padrão: 5s
 # ------------------------------------------------------
 
+# TODO: definindo o barramento é provavel descartar o modulo I2C e seus chamdos
 # TODO: arrumar isso aqui
 ADC = {
     'endereco': 0x48,
-    'barramento': 0,
+    'barramento': 1,
     'ganho': 1,
     'pFS': 32767,
     'nFS': 32768,
