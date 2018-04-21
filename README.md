@@ -14,12 +14,7 @@ Para utilizar a máquina virtual utilize o comando source:
 
 Clone o repósitório:
 
-    git clone https://github.com/filipedsgn/dashapp.git
-
-Instale os pacotes necessários (utilizando a máquina virtual criada):
-
-    cd dashapp
-    pip install -r requirements.txt
+    git clone https://github.com/filipedsgn/dashboard.git
 
 Instale o ambiente desenvolvimento para trabalhar nos códigos (PyCharm Community Edition):
 
