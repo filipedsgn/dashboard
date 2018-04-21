@@ -46,7 +46,7 @@ class Camera(Thread):
         # Criar diretório de fotos caso não existir
         pathlib.Path(config.CSV['fotos']).mkdir(parents=True, exist_ok=True)
 
-        subprocess.run(['raspistill', '-a', '12', '-md', '1', '-o', config.CSV['fotos'] +
+        subprocess.run(['raspistill', '-a', '12', '-md', '1', '-o', config.CSV['fotos'] + '/' +
                         dt.datetime.now().strftime('%Y-%m-%dT%H:%M:%S') + '.jpg', '-n', '-t', '1000'])
 
     def run(self):

@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-# Primeiro programa a ser executado
-from lib import backup, amostragem, alarme
+import pathlib
+
+from lib import alarme, amostragem, backup, config
 
 # Verificar / Definir Timezone
 # A cada mês criar um arquivo novo de BACKUP

@@ -34,7 +34,6 @@ class Iniciar(Thread):
                            'c0ext': np.nan
                            }, index=[agora])).to_csv(config.CSV['dados'])
 
-        self.canal = []
         # Cria uma instância do objeto do conversor Analógico-Digital
         self.adc = conversor.ADS1115()
 
@@ -55,14 +54,15 @@ class Iniciar(Thread):
             # Captura o tempo atual
             agora = dt.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 
+            canal = [0] * 4
             # Amostra as entradas analógicas do conversor
             for i in range(4):
-                self.canal[i] = self.adc.read_adc(i, gain=config.ADC['ganho'])
+                canal[i] = self.adc.read_adc(i, gain=config.ADC['ganho'])
 
-            pd.DataFrame({'c0tem': self.interpolar(self.canal[config.ADC['tempCH']], *self.tempConf),
-                          'c0hum': self.interpolar(self.canal[config.ADC['humiCH']], *self.humiConf),
-                          'c0lum': self.interpolar(self.canal[config.ADC['lumiCH']], *self.humiConf),
-                          'c0ext': self.interpolar(self.canal[config.ADC['extrCH']], *self.extrConf)
+            pd.DataFrame({'c0tem': self.interpolar(canal[config.ADC['tempCH']], *self.tempConf),
+                          'c0hum': self.interpolar(canal[config.ADC['humiCH']], *self.humiConf),
+                          'c0lum': self.interpolar(canal[config.ADC['lumiCH']], *self.humiConf),
+                          'c0ext': self.interpolar(canal[config.ADC['extrCH']], *self.extrConf)
                           }, index=[agora]).to_csv(config.CSV['dados'], header=False, mode='a')
 
             time.sleep(5)

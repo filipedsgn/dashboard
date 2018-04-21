@@ -43,8 +43,8 @@ def bkup():
                        }, index=[agora])).to_csv(config.CSV['dados'])
 
     # Faz uma cópia do arquivo de log para BACKUP
-    pathlib.Path(config.CSV['log']).rename(config.CSV['dadosBkupDir' + '/LOG-' +
-                                                      dt.datetime.now().strftime('%Y-%m-%dT%H:%M:%S') + '.csv'])
+    pathlib.Path(config.CSV['log']).rename(config.CSV['dadosBkupDir'] + '/LOG-' +
+                                                      dt.datetime.now().strftime('%Y-%m-%dT%H:%M:%S') + '.csv')
 
     # TODO: adicionar multiplas cópias das fotos
 
