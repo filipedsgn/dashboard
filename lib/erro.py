@@ -18,12 +18,12 @@ def tipo(erro):
     agora = dt.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 
     # Verifica se existe arquivo de log de erros
-    if not pathlib.Path(config.ARQ['log']).exists() or erro == 1:
+    if erro == 1 or not pathlib.Path(config.ARQ['log']).exists():
         info.alerta = True
         (pd.DataFrame({'Cod': 1, 'Erro': 'Log de erro criado'
                        }, index=[agora])).to_csv(config.ARQ['log'])
 
-    if erro == 2:
+    elif erro == 2:
         info.alerta = True
         (pd.DataFrame({'Cod': 2, 'Erro': 'Arquivo de dados inexistente'
                        }, index=[agora])).to_csv(config.ARQ['log'], header=False, mode='a')

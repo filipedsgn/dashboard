@@ -12,17 +12,17 @@ from lib import info, captura, backup, config
 # Cria os diretórios
 pathlib.Path(config.ARQ['dadosBkupDir']).mkdir(parents=True, exist_ok=True)
 
-# Inicia led de indicação
+# Led indicativo
 led = info.Led()
 led.setDaemon(True)
 led.start()
 
-# Checar conexão com a internet
-
-# Captura foto
+# Camera
 camera = info.Camera()
 camera.setDaemon(True)
 camera.start()
+
+# Captura foto
 camera.foto()
 
 # Fazer backup

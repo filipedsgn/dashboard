@@ -65,12 +65,9 @@
 # Padrão: /home/pi/dashboard/DADOS/log.csv
 
 # (ARQ - fotos) Diretório de fotos
-# Padrão: /home/pi/dashboard/DADOS/log.csv
+# Padrão: /home/pi/dashboard/FOTOS
 
-# (ARQ - fotosBkupDir) Diretório de backup de fotos
-# Padrão: /home/pi/BACKUP/dashboard/fotos
-
-# (ARQ - dadosBkupDir) Diretório de backup de fotos
+# (ARQ - dadosBkupDir) Diretório de backup de dados
 # Padrão: /home/pi/BACKUP/dashboard/dados
 # ------------------------------------------------------
 
@@ -104,7 +101,6 @@ ARQ = {
     'dadosDir': r'/home/pi/dashboard/DADOS',
     'dados': r'/home/pi/dashboard/DADOS/dados.csv',
     'log': r'/home/pi/dashboard/DADOS/log.csv',
-    'fotos': r'/home/pi/dashboard/DADOS/fotos',
-    'fotosBkupDir': r'/home/pi/BACKUP/dashboard/fotos',
+    'fotos': r'/home/pi/dashboard/FOTOS',
     'dadosBkupDir': r'/home/pi/BACKUP/dashboard/dados'
 }
