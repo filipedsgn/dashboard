@@ -5,6 +5,9 @@ Amostragem(12/min - a cada 5seg):
 7 dias = 3,9MiB (120960 amostragens)
 30 dias = 16,8MiB (518400 amostragens)
 
+Raspberry:
+    https://elinux.org/RPi_HardwareHistory#Board_Revision_History
+
 ADC:
     +FS = 7FFFh 32767d
     -FS = 8000h 32768d
@@ -37,6 +40,9 @@ Pacotes externos instalados:
     numpy(1.12.1)                   instalado por padrão no raspberry pi
     pandas(0.19.2)                  instalado por sudo apt-get install python3-pandas
 
-Raspberry:
-    https://elinux.org/RPi_HardwareHistory#Board_Revision_History
-
+    dash pip3 install:
+        dash==0.21.
+        dash-rendere==0.12.1
+        dash-html-components==0.10.
+        dash-core-components==0.22.1
+        plotly --upgrade

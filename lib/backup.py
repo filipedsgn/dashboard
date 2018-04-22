@@ -21,9 +21,6 @@ def bkup():
         # Indicar qual erro
         erro.tipo(2)
 
-        # Cria diretório de dados caso não exista
-        pathlib.Path(config.ARQ['dadosDir']).mkdir(parents=True, exist_ok=True)
-
         # Cria um dataframe
         (pd.DataFrame({'c0tem': np.nan,
                        'c0hum': np.nan,

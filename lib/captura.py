@@ -1,12 +1,10 @@
 import datetime as dt
-import pathlib
 import time
 from threading import Thread
 
-import numpy as np
 import pandas as pd
 
-from lib import config, erro
+from lib import config
 from lib.adc import ads1115
 
 
@@ -17,24 +15,6 @@ from lib.adc import ads1115
 class Iniciar(Thread):
     def __init__(self):
         super().__init__()
-
-        # Verifica se existe arquivo de dados
-        if not pathlib.Path(config.ARQ['dados']).exists():
-            # Indicar erro caso não exista
-            erro.tipo(2)
-
-            # Cria diretório de dados
-            pathlib.Path(config.ARQ['dadosDir']).mkdir(parents=True, exist_ok=True)
-
-            # Captura tempo atual
-            agora = dt.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-
-            # Cria um dataframe sem valores
-            (pd.DataFrame({'c0tem': np.nan,
-                           'c0hum': np.nan,
-                           'c0lum': np.nan,
-                           'c0ext': np.nan
-                           }, index=[agora])).to_csv(config.ARQ['dados'])
 
         # Cria uma instância do objeto do conversor Analógico-Digital
         self.adc = ads1115.ADS1115()

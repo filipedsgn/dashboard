@@ -1,16 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-import pathlib
-
-from lib import info, captura, backup, config
+from lib import info, captura, backup
 
 # Verificar / Definir Timezone
 # A cada mês criar um arquivo novo de BACKUP
 # Verificar se quantos sensores estão conectados (valores zeros contínuos)
-
-# Cria os diretórios
-pathlib.Path(config.ARQ['dadosBkupDir']).mkdir(parents=True, exist_ok=True)
 
 # Led indicativo
 led = info.Led()

@@ -11,8 +11,6 @@ from lib import info, config
 # 2 Arquivo de dados inexistente (captura.py)
 
 # TODO: adicionar alerta na página principal
-# TODO: ver quais erros ainda estão valendo
-
 def tipo(erro):
     # Captura tempo atual para registro de erro
     agora = dt.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
@@ -20,7 +18,6 @@ def tipo(erro):
     # Verifica se existe arquivo de log de erros
     if erro == 1 or not pathlib.Path(config.ARQ['log']).exists():
         info.alerta = True
-        pathlib.Path(config.ARQ['log']).mkdir(parents=True, exist_ok=True)
         (pd.DataFrame({'Cod': 1, 'Erro': 'Log de erro criado'
                        }, index=[agora])).to_csv(config.ARQ['log'])
 

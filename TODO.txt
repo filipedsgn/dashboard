@@ -1,8 +1,4 @@
-# Não instalar Numpy do pip, raspberry não consegue manipular versões mais recentes (conferir com outros modúlos)
-
 # Arquivo de Backup Diário, Mensal, Anual (Diretórios?)
-
-# Arquivo para conversão de dados
 
 # Arquivo com plotagens utilizada pelo Dash
 
