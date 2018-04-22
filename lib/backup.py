@@ -8,8 +8,9 @@ from lib import config, erro
 
 
 def bkup():
-    # Cria diretório de backup caso não exista
+    # Cria diretório de backup e dados caso não exista
     pathlib.Path(config.ARQ['dadosBkupDir']).mkdir(parents=True, exist_ok=True)
+    pathlib.Path(config.ARQ['dadosDir']).mkdir(parents=True, exist_ok=True)
 
     # Verifica se o arquivo de log existe
     if not pathlib.Path(config.ARQ['log']).exists():

@@ -20,6 +20,7 @@ def tipo(erro):
     # Verifica se existe arquivo de log de erros
     if erro == 1 or not pathlib.Path(config.ARQ['log']).exists():
         info.alerta = True
+        pathlib.Path(config.ARQ['log']).mkdir(parents=True, exist_ok=True)
         (pd.DataFrame({'Cod': 1, 'Erro': 'Log de erro criado'
                        }, index=[agora])).to_csv(config.ARQ['log'])
 
