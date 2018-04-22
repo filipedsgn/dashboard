@@ -19,7 +19,7 @@ led.start()
 
 # Checar conexão com a internet
 
-# Tira foto
+# Captura foto
 camera = info.Camera()
 camera.setDaemon(True)
 camera.start()

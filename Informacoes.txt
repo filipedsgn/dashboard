@@ -37,14 +37,6 @@ Pacotes externos instalados:
     numpy(1.12.1)                   instalado por padrão no raspberry pi
     pandas(0.19.2)                  instalado por sudo apt-get install python3-pandas
 
-Iniciar:
-    Conferir conexão com a rede local (WI-FI)
-        caso não consiga continue o programa e tente novamente em 30 seg (LED VERMELHO)
-
-    Realizar Backups
-    Iniciar Amostragem
-    Iniciar APP
-
 Raspberry:
     https://elinux.org/RPi_HardwareHistory#Board_Revision_History
 

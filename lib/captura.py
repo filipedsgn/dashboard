@@ -53,7 +53,7 @@ class Iniciar(Thread):
             canal = [0] * 4
             # Captura os valores das entradas analógicas do conversor
             for i in range(4):
-                canal[i] = self.adc.read_adc(i, gain=config.ADC['ganho'])
+                canal[i] = self.adc.read_adc(i)
 
             # Adiciona no arquivo de dados os valores lidos
             pd.DataFrame({'c0tem': self.interpolar(canal[config.ADC['tempCH']], *config.ADC['tempConfig']),
