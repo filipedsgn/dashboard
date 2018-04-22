@@ -26,7 +26,7 @@ import logging
 import os
 import subprocess
 
-from lib import plataforma
+from lib.adc import plataforma, smbus
 
 
 def reverseByteOrder(data):
@@ -102,7 +102,6 @@ class Device(object):
         self._address = address
         if i2c_interface is None:
             # Use pure python I2C interface if none is specified.
-            from lib import smbus
             self._bus = smbus.SMBus(busnum)
         else:
             # Otherwise use the provided class to create an smbus interface.

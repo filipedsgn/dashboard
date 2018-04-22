@@ -43,24 +43,6 @@
 # min_ADC - max_ADC - min_extr - max_extr
 # Padrão: (0, 100, 0, 100)
 
-# (FIL - dadosDir) Diretório onde contem o arquivo de dados
-# Padrão: /home/pi/dashboard/DADOS
-
-# (FIL - dados) Arquivo de dados
-# Padrão: /home/pi/dashboard/DADOS/dados.csv
-
-# (FIL - log) Diretório e o nome do arquivo de log de erro
-# Padrão: /home/pi/dashboard/DADOS/log.csv
-
-# (FIL - fotos) Diretório de fotos
-# Padrão: /home/pi/dashboard/DADOS/log.csv
-
-# (FIL - fotosBkupDir) Diretório de backup de fotos
-# Padrão: /home/pi/BACKUP/dashboard/fotos
-
-# (FIL - dadosBkupDir) Diretório de backup de fotos
-# Padrão: /home/pi/BACKUP/dashboard/dados
-
 # (ALR - email) Email para o qual será enviado o arquivo de BACKUP
 # Padrão: nenhum
 
@@ -72,6 +54,24 @@
 
 # (ALR - ledvr) pino de saída do LED verde (padrão GPIO.BCM)
 # Padrão: 18
+
+# (ARQ - dadosDir) Diretório onde contem o arquivo de dados
+# Padrão: /home/pi/dashboard/DADOS
+
+# (ARQ - dados) Arquivo de dados
+# Padrão: /home/pi/dashboard/DADOS/dados.csv
+
+# (ARQ - log) Diretório e o nome do arquivo de log de erro
+# Padrão: /home/pi/dashboard/DADOS/log.csv
+
+# (ARQ - fotos) Diretório de fotos
+# Padrão: /home/pi/dashboard/DADOS/log.csv
+
+# (ARQ - fotosBkupDir) Diretório de backup de fotos
+# Padrão: /home/pi/BACKUP/dashboard/fotos
+
+# (ARQ - dadosBkupDir) Diretório de backup de fotos
+# Padrão: /home/pi/BACKUP/dashboard/dados
 # ------------------------------------------------------
 
 # Algo do conversor
@@ -93,18 +93,18 @@ ADC = {
     'extrConfig': (0, 32737, 0, 100),
 }
 
-FIL = {
+ALR = {
+    'email': 'nenhum',
+    'telefone': 'nenhum',
+    'ledvm': 23,
+    'ledvr': 18,
+}
+
+ARQ = {
     'dadosDir': r'/home/pi/dashboard/DADOS',
     'dados': r'/home/pi/dashboard/DADOS/dados.csv',
     'log': r'/home/pi/dashboard/DADOS/log.csv',
     'fotos': r'/home/pi/dashboard/DADOS/fotos',
     'fotosBkupDir': r'/home/pi/BACKUP/dashboard/fotos',
     'dadosBkupDir': r'/home/pi/BACKUP/dashboard/dados'
-}
-
-ALR = {
-    'email': 'nenhum',
-    'telefone': 'nenhum',
-    'ledvm': 23,
-    'ledvr': 18,
 }
