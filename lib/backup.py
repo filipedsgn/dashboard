@@ -1,5 +1,6 @@
 import datetime as dt
 import pathlib
+import shutil
 
 import numpy as np
 import pandas as pd
@@ -22,15 +23,16 @@ def bkup():
         erro.tipo(2)
 
         # Cria um dataframe
-        (pd.DataFrame({'c0tem': np.nan,
-                       'c0hum': np.nan,
-                       'c0lum': np.nan,
-                       'c0ext': np.nan
+        (pd.DataFrame({'Temperatura': np.nan,
+                       'Humidade': np.nan,
+                       'Luminosidade': np.nan,
+                       'Extra': np.nan
                        }, index=[dt.datetime.now().strftime('%Y-%m-%d %H:%M:%S')])).to_csv(config.ARQ['dados'])
 
     # Faz uma cópia do arquivo de dados e log para BACKUP
-    pathlib.Path(config.ARQ['dados']).rename(config.ARQ['dadosBkupDir'] + '/DAT-' +
-                                             dt.datetime.now().strftime('%Y-%m-%dT%H:%M:%S') + '.csv')
 
-    pathlib.Path(config.ARQ['log']).rename(config.ARQ['dadosBkupDir'] + '/LOG-' +
-                                           dt.datetime.now().strftime('%Y-%m-%dT%H:%M:%S') + '.csv')
+    shutil.copy2(config.ARQ['dados'], config.ARQ['dadosBkupDir'] + '/' +
+                 dt.datetime.now().strftime('%Y-%m-%dT%H:%M:%S') + '-DAT' + '.csv')
+
+    shutil.copy2(config.ARQ['log'], config.ARQ['dadosBkupDir'] + '/' +
+                 dt.datetime.now().strftime('%Y-%m-%dT%H:%M:%S') + '-LOG' + '.csv')
