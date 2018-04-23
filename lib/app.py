@@ -9,53 +9,44 @@ import dash_html_components as html
 
 import pandas as pd
 
+import plotly.graph_objs as go
+
 app = dash.Dash()
 
-df = pd.read_csv('~/Downloads/teste.csv')
+df = pd.read_csv(
+    'https://gist.githubusercontent.com/chriddyp/' +
+    '5d1ea79569ed194d432e56108a04d188/raw/' +
+    'a9f9e8076b837d541398e999dcbac2b2826a81f8/'+
+    'gdp-life-exp-2007.csv')
 
 app.layout = html.Div([
     dcc.Graph(
-        id='dados-sensoriais',
+        id='life-exp-vs-gdp',
         figure={
             'data': [
                 go.Scatter(
-                    x=df[df['bla'] == i]['temp'],
-                    y=df[df['bla'] == i]['']
-                )
-            ]
+                    x=df[df['continent'] == i]['gdp per capita'],
+                    y=df[df['continent'] == i]['life expectancy'],
+                    text=df[df['continent'] == i]['country'],
+                    mode='markers',
+                    opacity=0.7,
+                    marker={
+                        'size': 15,
+                        'line': {'width': 0.5, 'color': 'white'}
+                    },
+                    name=i
+                ) for i in df.continent.unique()
+            ],
+            'layout': go.Layout(
+                xaxis={'type': 'log', 'title': 'GDP Per Capita'},
+                yaxis={'title': 'Life Expectancy'},
+                margin={'l': 40, 'b': 40, 't': 10, 'r': 10},
+                legend={'x': 0, 'y': 1},
+                hovermode='closest'
+            )
         }
     )
 ])
 
-#RangeSlider
-#https://dash.plot.ly/getting-started-part-2
-
-dcc.RangeSlider(
-    min = 0,
-    max = 7,
-    step = None,
-    marks = {
-        0: '8Hrs',
-        1: '5Hrs',
-        2: '2Hrs',
-        3: '1Hr',
-        4: '30min',
-        5: '15min',
-        6: '5min',
-        7: 'Agora'
-    },
-    value = [6, 7]
-)
-
-
-
-@call.callback(
-
-)
-
-def update_graph(
-
-)
-
 if __name__ == '__main__':
-    app.run_server(debug=True)
+    app.run_server()
