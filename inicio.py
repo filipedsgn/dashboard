@@ -29,7 +29,7 @@ capturar.setDaemon(True)
 capturar.start()
 
 while True:
-    pass
+    capturar.join()
 
 # Inicializa o app
 # app()

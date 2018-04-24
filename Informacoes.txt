@@ -46,3 +46,6 @@ Pacotes externos instalados:
         dash-html-components==0.10.
         dash-core-components==0.22.1
         plotly --upgrade
+
+Plotly:
+    app.run(port=XXXX, host='0')

@@ -1,3 +1,7 @@
+# Quebrar os dados em dias ou semanas, no backup
+
+# Colocar cabeçalho em Tempo no csv
+
 # Arquivo de Backup Diário, Mensal, Anual (Diretórios?)
 
 # Arquivo com plotagens utilizada pelo Dash

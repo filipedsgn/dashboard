@@ -104,3 +104,7 @@ ARQ = {
     'fotos': r'/home/pi/dashboard/FOTOS',
     'dadosBkupDir': r'/home/pi/BACKUP/dashboard/dados'
 }
+
+GRA = {
+    'spam': 2
+}

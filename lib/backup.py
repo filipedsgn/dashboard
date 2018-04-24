@@ -27,7 +27,8 @@ def bkup():
                        'Humidade': np.nan,
                        'Luminosidade': np.nan,
                        'Extra': np.nan
-                       }, index=[dt.datetime.now().strftime('%Y-%m-%d %H:%M:%S')])).to_csv(config.ARQ['dados'])
+                       }, index=[dt.datetime.now().strftime('%Y-%m-%d %H:%M:%S')])).to_csv(config.ARQ['dados'],
+                                                                                           index_label='Tempo')
 
     # Faz uma cópia do arquivo de dados e log para BACKUP
 

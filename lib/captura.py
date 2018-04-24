@@ -36,11 +36,11 @@ class Iniciar(Thread):
                 canal[i] = self.adc.read_adc(i)
 
             # Adiciona no arquivo de dados os valores lidos
-            pd.DataFrame({'c0tem': self.interpolar(canal[config.ADC['tempCH']], *config.ADC['tempConfig']),
-                          'c0hum': self.interpolar(canal[config.ADC['humiCH']], *config.ADC['humiConfig']),
-                          'c0lum': self.interpolar(canal[config.ADC['lumiCH']], *config.ADC['lumiConfig']),
-                          'c0ext': self.interpolar(canal[config.ADC['extrCH']], *config.ADC['extrConfig'])
-                          }, index=[agora]).to_csv(config.ARQ['dados'], header=False, mode='a')
+            pd.DataFrame({'Temperatura': self.interpolar(canal[config.ADC['tempCH']], *config.ADC['tempConfig']),
+                          'Humidade': self.interpolar(canal[config.ADC['humiCH']], *config.ADC['humiConfig']),
+                          'Luminosidade': self.interpolar(canal[config.ADC['lumiCH']], *config.ADC['lumiConfig']),
+                          'Extra': self.interpolar(canal[config.ADC['extrCH']], *config.ADC['extrConfig'])
+                          }, index=[agora]).to_csv(config.ARQ['dados'], header=False, mode='a', index_label='Tempo')
 
             # Intervalo para a próxima amostragem
             time.sleep(config.ADC['amostragem'])

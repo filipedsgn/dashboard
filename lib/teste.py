@@ -42,11 +42,3 @@ while True:
     teste = not teste
     time.sleep(3)
 '''
-
-'''
-    pathlib.Path(config.ARQ['dados']).rename(config.ARQ['dadosBkupDir'] + '/DAT-' +
-                                             dt.datetime.now().strftime('%Y-%m-%dT%H:%M:%S') + '.csv')
-
-    pathlib.Path(config.ARQ['log']).rename(config.ARQ['dadosBkupDir'] + '/LOG-' +
-                                           dt.datetime.now().strftime('%Y-%m-%dT%H:%M:%S') + '.csv')
-'''
