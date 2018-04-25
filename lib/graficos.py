@@ -1,26 +1,48 @@
-import plotly.plotly as py
-from plotly.graph_objs import *
-import dash
 import dash_core_components as dcc
-import dash_html_components as html
 import pandas as pd
 
 from lib import config
 # TODO: ver locais onde tem parenteses encapsulando objetos, desnecessariamente
+# TODO: spam converter para int() senão dá erro
 
-def grafico_linha(tipo, horas=1):
+def grafico_linha(tipo, horas=config.GRA['spam']):
     # Quantidade de amostras no intervalo informado
     spam = (3600 / 5) * horas
 
+    if tipo == 'Temperatura':
+        _sufixo = config.GRA['tempSuf']
+        _cor = config.GRA['tempCol']
+        _minimo = config.GRA['tempMin']
+        _maximo = config.GRA['tempMax']
+
+    elif tipo == 'Humidade':
+        _sufixo = config.GRA['humiSuf']
+        _cor = config.GRA['humiCol']
+        _minimo = config.GRA['humiMin']
+        _maximo = config.GRA['humiMax']
+
+    elif tipo == 'Luminosidade':
+        _sufixo = config.GRA['lumiSuf']
+        _cor = config.GRA['lumiCol']
+        _minimo = config.GRA['lumiMin']
+        _maximo = config.GRA['lumiMax']
+
+    else:
+        _sufixo = config.GRA['extrSuf']
+        _cor = config.GRA['extrCol']
+        _minimo = config.GRA['extrMin']
+        _maximo = config.GRA['extrMax']
+
     # TODO: Adicionar erro
     df = pd.read_csv(r'~/Documentos/backuptcc/dados.csv', index_col=['Tempo'], usecols=['Tempo', tipo]).tail(spam)
+
     return dcc.Graph(id=tipo, figure={
         'data': [{"x": df.index.tolist(),
-                  "y": df['Temperatura'].tolist(),
+                  "y": df[tipo].tolist(),
                   "connectgaps": False,
                   "hoverinfo": "x+y+name",
                   "line": {
-                      "color": config.GRA['tempCol'],
+                      "color": _cor,
                       "dash": "solid",
                       "shape": "spline",
                       "width": 2
@@ -47,7 +69,7 @@ def grafico_linha(tipo, horas=1):
                        "yanchor": "top"
                    },
                    "showlegend": False,
-                   "title": "Temperatura",
+                   "title": tipo,
                    "titlefont": {"size": 24},
                    "xaxis": {
                        "autorange": True,
@@ -102,9 +124,10 @@ def grafico_linha(tipo, horas=1):
                    "yaxis": {
                        "autorange": True,
                        "fixedrange": True,
-                       "range": [config.GRA['tempMin'], config.GRA['tempMax']],  # FIXME: aqui
+                       "range": [_minimo, _maximo],
                        "showgrid": True,
                        "showline": False,
+                       "ticksuffix": _sufixo,
                        "showspikes": False,
                        "showticklabels": True,
                        "ticks": "",
@@ -114,12 +137,3 @@ def grafico_linha(tipo, horas=1):
                    }
                    }
     })
-
-
-app.layout = html.Div(children=[
-    html.H4(children='US Agriculture Exports (2011)'),
-    grafico_linha('Temperatura', 1)
-])
-
-if __name__ == '__main__':
-    app.run_server(debug=True)

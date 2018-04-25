@@ -7,13 +7,9 @@
 import dash
 import pandas as pd
 
-from lib import config
+from lib import config, graficos
 
 app = dash.Dash()
-
-df = pd.read_csv(config.ARQ['dados']).tail(360)
-
-
 
 # tudo
 app.layout = html.Div([
@@ -22,7 +18,7 @@ app.layout = html.Div([
     # conteúdo
     html.Div([
         # graf temp
-        html.Div(['----GRAFICO TEMP----'], style={}),
+        html.Div([children=graficos.grafico_linha('Temperatura'), style={}),
         # barra horizontal
         html.Div(['----BARRA HORIZONTAL----'], style={}),
         # conteúdo 2
