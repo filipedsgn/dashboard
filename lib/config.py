@@ -106,5 +106,21 @@ ARQ = {
 }
 
 GRA = {
-    'spam': 2
+    'spam': 2,
+    'tempMax': 40,
+    'tempMin': 0,
+    'tempSuf': ' °C',
+    'tempCol': 'rgb(255, 127, 14)',
+    'humiMax': 100,
+    'humiMin': 0,
+    'humiSuf': r' %',
+    'humiCol': 'rgb(0,0,0)',
+    'lumiMax': 1000,
+    'lumiMin': 0,
+    'lumiSuf': r' %',
+    'lhumiCol': 'rgb(0,0,0)',
+    'extrMax': 1000,
+    'extrMin': 0,
+    'extriSuf': r' %',
+    'extrCol': 'rgb(0,0,0)',
 }

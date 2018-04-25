@@ -3,11 +3,9 @@
 
 # TODO: tirar index de tempo e fazer uma coluna separada (ou talvez não)ls
 
+
 import dash
-import dash_core_components as dcc
-import dash_html_components as html
 import pandas as pd
-import plotly.graph_objs as go
 
 from lib import config
 
@@ -15,10 +13,6 @@ app = dash.Dash()
 
 df = pd.read_csv(config.ARQ['dados']).tail(360)
 
-colors = {
-    'fb': '#506784',
-    'bg': '#FFFFFF'
-}
 
 
 # tudo

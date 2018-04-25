@@ -37,3 +37,6 @@ def bkup():
 
     shutil.copy2(config.ARQ['log'], config.ARQ['dadosBkupDir'] + '/' +
                  dt.datetime.now().strftime('%Y-%m-%dT%H:%M:%S') + '-LOG' + '.csv')
+
+# BACKUP pegando uma parte anterior para plotar
+# um arquivo do mês e outro normal

@@ -1,6 +1,6 @@
 # Quebrar os dados em dias ou semanas, no backup
 
-# Colocar cabeçalho em Tempo no csv
+# Conferir qualquer possibilidade de erro com mudança na adição de titulo ao index dos dataframes
 
 # Arquivo de Backup Diário, Mensal, Anual (Diretórios?)
 
