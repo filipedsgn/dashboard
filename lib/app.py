@@ -11,27 +11,22 @@ from lib import config, graficos
 
 app = dash.Dash()
 
-# tudo
-app.layout = html.Div([
-    # header
-    html.Div(['----HEADER----'], style={'width': '98%', 'display': 'inline-block'}),
-    # conteúdo
+app.layout = html.Div(
     html.Div([
-        # graf temp
-        html.Div([children=graficos.grafico_linha('Temperatura'), style={}),
-        # barra horizontal
-        html.Div(['----BARRA HORIZONTAL----'], style={}),
-        # conteúdo 2
-        html.Div(['----DIV----'
-                  # gráfico humidade
-                  html.Div(['----GRAFICA HUMI----'], style={}),
-                  # barra vertical
-                  html.Div(['----BARRA VERTICAL----'], style={}),
-                  # gráfico luminosidade
-                  html.Div(['----GRAFICO LUMI----'], style={}),
-                 )], style={}
-    )], style={})
-], style={'borderBottom': 'thin lightgrey solid', 'backgroundColor': 'rgb(250,250,250)', 'padding': '10px 5px'})
-
+        html.Div([
+            html.Div(['Residência'], style={'fontSize': '22.4px', 'fontWeight': '200', 'marginLeft': '22.4px', 'lineHeight': '3em', 'display': 'block', 'lineWeight': '200', 'boxSizing': 'border-box'})
+            ], style={}
+        ),
+        html.Div([
+            html.Div(children=grafico_linha('Temperatura'), style={}),
+            html.Div([], style={}),
+            html.Div([
+                html.Div(children=grafico_linha('Humidade'), style={}),
+                html.Div([], style={}),
+                html.Div(children=grafico_linha('Extra'), style={})
+                ])
+            ])
+        ])
+    )
 if __name__ == '__main__':
     app.run_server()
