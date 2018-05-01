@@ -7,7 +7,7 @@ from lib import config
 
 def linha(tipo, horas=config.GRA['spam']):
     # Quantidade de amostras no intervalo informado
-    spam = (3600 / 5) * horas
+    spam = int((3600 / 5) * horas)
 
     if tipo == 'Temperatura':
         _sufixo = config.GRA['tempSuf']

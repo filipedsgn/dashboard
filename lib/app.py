@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 # TODO: tirar index de tempo e fazer uma coluna separada (ou talvez não)ls
+# TODO: trocar o nome deste arquivo
 
 
 import dash

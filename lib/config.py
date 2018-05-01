@@ -118,7 +118,7 @@ GRA = {
     'lumiMax': 1000,
     'lumiMin': 0,
     'lumiSuf': r' %',
-    'lhumiCol': 'rgb(0,0,0)',
+    'lumiCol': 'rgb(0,0,0)',
     'extrMax': 1000,
     'extrMin': 0,
     'extriSuf': r' %',
