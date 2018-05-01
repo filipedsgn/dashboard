@@ -29,14 +29,14 @@
   grid-area: header;
 }
 
-.grafico1 {
+.g1 {
   grid-area: grafico1;
 }
 
-.grafico2 {
+.g2 {
   grid-area: grafico2;
 }
 
-.grafico3 {
+.g3 {
   grid-area: grafico3;
 }

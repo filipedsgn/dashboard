@@ -5,7 +5,7 @@ from lib import config
 # TODO: ver locais onde tem parenteses encapsulando objetos, desnecessariamente
 # TODO: spam converter para int() senão dá erro
 
-def grafico_linha(tipo, horas=config.GRA['spam']):
+def linha(tipo, horas=config.GRA['spam']):
     # Quantidade de amostras no intervalo informado
     spam = (3600 / 5) * horas
 

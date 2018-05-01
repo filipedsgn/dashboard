@@ -27,9 +27,9 @@ app.scripts.config.serve_locally = True
 app.layout = html.Div([
     html.Link(rel='stylesheet', href='/static/stylesheet.css'),
     html.Div(children="Residência", className="header"),
-    html.Div(children=grafico_linha('Temperatura'), className="grafico1"),
-    html.Div(children=grafico_linha('Humidade'), className="grafico2"),
-    html.Div(children=grafico_linha('Luminosidade'), className="grafico3")
+    html.Div(children=graficos.linha('Temperatura'), className="g1"),
+    html.Div(children=graficos.linha('Humidade'), className="g2"),
+    html.Div(children=graficos.linha('Luminosidade'), className="g3")
 ], className="wrapper")
 
 
@@ -40,4 +40,4 @@ def static_file(path):
 
 
 if __name__ == '__main__':
-    app.run_server()
+    app.run_server(port=8050, host='0', debug=True)
