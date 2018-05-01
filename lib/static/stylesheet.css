@@ -1,0 +1,42 @@
+.wrapper {
+  display: grid;
+  grid-gap: 20px 10px;
+  grid-template-rows: 60px auto;
+  grid-template-areas:
+    "header"
+    "grafico1"
+    "grafico2"
+    "grafico3";
+}
+
+@media only screen and (min-width: 1000px)  {
+  .wrapper {
+    grid-template-areas:
+      "header header"
+      "grafico1 grafico1"
+      "grafico2 grafico3";
+  }
+}
+
+.box {
+  padding: 10px;
+  background-color: #000000;
+  color: #FFFFFF;
+  font-size: 20px;
+}
+
+.header {
+  grid-area: header;
+}
+
+.grafico1 {
+  grid-area: grafico1;
+}
+
+.grafico2 {
+  grid-area: grafico2;
+}
+
+.grafico3 {
+  grid-area: grafico3;
+}
