@@ -34,7 +34,7 @@ def linha(tipo, horas=config.GRA['spam']):
         _maximo = config.GRA['extrMax']
 
     # TODO: Adicionar erro
-    df = pd.read_csv(r'~/Documentos/backuptcc/dados.csv', index_col=['Tempo'], usecols=['Tempo', tipo]).tail(spam)
+    df = pd.read_csv(config.ARQ['dados'], index_col=['Tempo'], usecols=['Tempo', tipo]).tail(spam)
 
     return dcc.Graph(id=tipo, figure={
         'data': [{"x": df.index.tolist(),
