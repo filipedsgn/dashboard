@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-from lib import info, captura, backup
+from lib import info, captura, backup, site
 
 # Verificar / Definir Timezone
 # A cada mês criar um arquivo novo de BACKUP

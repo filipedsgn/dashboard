@@ -1,16 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-# TODO: tirar index de tempo e fazer uma coluna separada (ou talvez não)ls
-# TODO: trocar o nome deste arquivo
-
-
-import dash
-import pandas as pd
-import os
-
-from lib import config, graficos
-from flask import send_from_directory
+from lib import graficos
 
 import plotly.plotly as py
 from plotly.graph_objs import *
@@ -40,5 +31,4 @@ def static_file(path):
     return send_from_directory(static_folder, path)
 
 
-if __name__ == '__main__':
-    app.run_server(port=8050, host='0', debug=True)
+app.run_server(port=8050, host='0', debug=True)
