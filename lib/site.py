@@ -20,7 +20,7 @@ app.layout = html.Div([
     html.Link(rel='stylesheet', href='/static/stylesheet.css'),
     html.Div(children="Residência", className="header"),
     html.Div(children=graficos.linha('Temperatura'), className="g1"),
-    html.Div(children=graficos.linha('Humidade'), className="g2"),
+    html.Div(children=graficos.linha('Umidade'), className="g2"),
     html.Div(children=graficos.linha('Luminosidade'), className="g3")
 ], className="wrapper")
 

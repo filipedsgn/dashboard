@@ -35,7 +35,7 @@ class Iniciar(Thread):
 
             # Adiciona no arquivo de dados os valores lidos
             pd.DataFrame({'Temperatura': self.interpolar(canal[config.ADC['tempCH']], *config.ADC['tempConfig']),
-                          'Humidade': self.interpolar(canal[config.ADC['humiCH']], *config.ADC['humiConfig']),
+                          'Umidade': self.interpolar(canal[config.ADC['umidCH']], *config.ADC['umidConfig']),
                           'Luminosidade': self.interpolar(canal[config.ADC['lumiCH']], *config.ADC['lumiConfig']),
                           'Extra': self.interpolar(canal[config.ADC['extrCH']], *config.ADC['extrConfig'])
                           }, index=[agora]).to_csv(config.ARQ['dados'], header=False, mode='a', index_label='Tempo')

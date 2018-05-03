@@ -31,8 +31,8 @@
 # min_ADC - max_ADC - min_temp - max_temp
 # Padrão: (0, 100, 0, 100)
 
-# (ADC - humiConfig) Parâmetros de configuração ADC da humidade
-# min_ADC - max_ADC - min_humi - max_humi
+# (ADC - humiConfig) Parâmetros de configuração ADC da umidade
+# min_ADC - max_ADC - min_umid - max_umid
 # Padrão: (0, 100, 0, 100)
 
 # (ADC - lumiConfig) Parâmetros de configuração ADC da luminosidade
@@ -81,11 +81,11 @@
 ADC = {
     'amostragem': 5,
     'tempCH': 0,
-    'humiCH': 1,
+    'umidCH': 1,
     'lumiCH': 2,
     'extrCH': 3,
     'tempConfig': (0, 32767, 0, 100),
-    'humiConfig': (0, 32767, 0, 100),
+    'umidConfig': (0, 32767, 0, 100),
     'lumiConfig': (0, 32767, 0, 100),
     'extrConfig': (0, 32737, 0, 100),
 }
@@ -106,15 +106,15 @@ ARQ = {
 }
 
 GRA = {
-    'spam': 2,
+    'spam': 1,
     'tempMax': 40,
     'tempMin': 0,
     'tempSuf': ' °C',
     'tempCol': 'rgb(232, 63, 111)',
-    'humiMax': 100,
-    'humiMin': 0,
-    'humiSuf': r' %',
-    'humiCol': 'rgb(34, 116, 165)',
+    'umidMax': 100,
+    'umidMin': 0,
+    'umidSuf': r' %',
+    'umidCol': 'rgb(34, 116, 165)',
     'lumiMax': 1000,
     'lumiMin': 0,
     'lumiSuf': r' %',

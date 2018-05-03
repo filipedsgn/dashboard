@@ -15,11 +15,11 @@ def linha(tipo, horas=config.GRA['spam']):
         _minimo = config.GRA['tempMin']
         _maximo = config.GRA['tempMax']
 
-    elif tipo == 'Humidade':
-        _sufixo = config.GRA['humiSuf']
-        _cor = config.GRA['humiCol']
-        _minimo = config.GRA['humiMin']
-        _maximo = config.GRA['humiMax']
+    elif tipo == 'Umidade':
+        _sufixo = config.GRA['umidSuf']
+        _cor = config.GRA['umidCol']
+        _minimo = config.GRA['umidMin']
+        _maximo = config.GRA['umidMax']
 
     elif tipo == 'Luminosidade':
         _sufixo = config.GRA['lumiSuf']
@@ -33,7 +33,7 @@ def linha(tipo, horas=config.GRA['spam']):
         _minimo = config.GRA['extrMin']
         _maximo = config.GRA['extrMax']
 
-    # TODO: Adicionar erro
+    # TODO: erro quando inicia e não tem arquivo de dados no local
     df = pd.read_csv(config.ARQ['dados'], index_col=['Tempo'], usecols=['Tempo', tipo]).tail(spam)
 
     return dcc.Graph(id=tipo, figure={
