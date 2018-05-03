@@ -34,8 +34,8 @@ class siteAPP(Thread):
 
 
         @app.server.route('/static/<resource>')
-            def serve_static(resource):
-                return flask.send_from_directory(STATIC_PATH, resource)
+        def serve_static(resource):
+            return flask.send_from_directory(STATIC_PATH, resource)
 
 
         app.run_server(port=8050, host='0', debug=True)
