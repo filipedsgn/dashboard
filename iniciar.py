@@ -28,8 +28,15 @@ capturar = captura.Iniciar()
 capturar.setDaemon(True)
 capturar.start()
 
+# Inicializa a homepage
+siteapp = site.siteAPP()
+siteapp.setDaemon(True)
+siteapp.start()
+
+# TODO: não precisa desses dois join
 while True:
     capturar.join()
+    site.join()
 
 # Inicializa o app
 # app()

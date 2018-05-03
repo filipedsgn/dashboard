@@ -10,29 +10,35 @@ import dash_core_components as dcc
 import dash_html_components as html
 from flask import send_from_directory
 import os
+from threading import Thread
 
-app = dash.Dash()
+class siteAPP(Thread):
+    def __init__(self):
+        super().__init__()
 
-STATIC_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'static')
+    def run():
+        app = dash.Dash()
 
-app.css.config.serve_locally = True
-app.scripts.config.serve_locally = True
+        STATIC_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'static')
 
-app.layout = html.Div([
-    html.Link(rel='stylesheet', href='/static/stylesheet.css'),
-    html.Div(children="Residência", className="header"),
-    html.Div(children=graficos.linha('Temperatura'), className="g1"),
-    html.Div(children=graficos.linha('Umidade'), className="g2"),
-    html.Div(children=graficos.linha('Luminosidade'), className="g3")
-], className="wrapper")
+        app.css.config.serve_locally = True
+        app.scripts.config.serve_locally = True
 
-
-@app.server.route('/static/<resource>')
-    def serve_static(resource):
-        return flask.send_from_directory(STATIC_PATH, resource)
+        app.layout = html.Div([
+            html.Link(rel='stylesheet', href='/static/stylesheet.css'),
+            html.Div(children="Residência", className="header"),
+            html.Div(children=graficos.linha('Temperatura'), className="g1"),
+            html.Div(children=graficos.linha('Umidade'), className="g2"),
+            html.Div(children=graficos.linha('Luminosidade'), className="g3")
+        ], className="wrapper")
 
 
-app.run_server(port=8050, host='0', debug=True)
+        @app.server.route('/static/<resource>')
+            def serve_static(resource):
+                return flask.send_from_directory(STATIC_PATH, resource)
+
+
+        app.run_server(port=8050, host='0', debug=True)
 
 '''
 import flask    
