@@ -11,7 +11,9 @@ import dash_html_components as html
 from flask import send_from_directory
 import os
 
-app = dash.Dash(static_folder='static')
+app = dash.Dash()
+
+STATIC_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'static')
 
 app.css.config.serve_locally = True
 app.scripts.config.serve_locally = True
@@ -25,10 +27,9 @@ app.layout = html.Div([
 ], className="wrapper")
 
 
-@app.server.route('/static/<path:path>')
-def static_file(path):
-    static_folder = os.path.join(os.getcwd(), 'static')
-    return send_from_directory(static_folder, path)
+@app.server.route('/static/<resource>')
+    def serve_static(resource):
+        return flask.send_from_directory(STATIC_PATH, resource)
 
 
 app.run_server(port=8050, host='0', debug=True)
@@ -36,11 +37,9 @@ app.run_server(port=8050, host='0', debug=True)
 '''
 import flask    
 import os
-STATIC_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'static')
 
-@app.server.route('/static/<resource>')
-    def serve_static(resource):
-        return flask.send_from_directory(STATIC_PATH, resource)
+
+
 '''
 
 '''
