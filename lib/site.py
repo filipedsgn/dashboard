@@ -16,9 +16,10 @@ class siteAPP(Thread):
     def __init__(self):
         super().__init__()
 
-    def run():
+    def run(self):
         app = dash.Dash()
 
+        #TODO: arrumar esse STATIC_PATH e vê qual path é o verdadeiro
         STATIC_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'static')
 
         app.css.config.serve_locally = True
@@ -35,7 +36,7 @@ class siteAPP(Thread):
 
         @app.server.route('/static/<resource>')
         def serve_static(resource):
-            return flask.send_from_directory(STATIC_PATH, resource)
+            return send_from_directory(STATIC_PATH, resource)
 
 
         app.run_server(port=8050, host='0', debug=True)
