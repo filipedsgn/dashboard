@@ -33,7 +33,7 @@ siteapp = site.siteAPP()
 siteapp.setDaemon(True)
 siteapp.start()
 
-# TODO: não precisa desses dois join
+# TODO: não precisa desses dois join, eu acho
 while True:
     capturar.join()
     site.join()

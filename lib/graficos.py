@@ -70,7 +70,7 @@ def linha(tipo, horas=config.GRA['spam']):
                    },
                    "showlegend": False,
                    "title": tipo,
-                   "titlefont": {"size": 24},
+                   "titlefont": {"size": 18},
                    "xaxis": {
                        "autorange": True,
                        "gridwidth": 1,
