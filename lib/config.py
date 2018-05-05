@@ -103,7 +103,8 @@ ARQ = {
     'dados': r'/home/pi/dashboard/DADOS/dados.csv',
     'log': r'/home/pi/dashboard/DADOS/log.csv',
     'fotos': r'/home/pi/dashboard/FOTOS',
-    'dadosBkupDir': r'/home/pi/BACKUP/dashboard/dados'
+    'dadosBkupDir': r'/home/pi/BACKUP/dashboard/dados',
+    'static': r'/home/pi/dashboard/lib/static'
 }
 
 GRA = {

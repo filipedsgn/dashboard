@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-from lib import graficos
+from lib import config, graficos
 
 import plotly.plotly as py
 from plotly.graph_objs import *
@@ -19,11 +19,6 @@ class siteAPP(Thread):
     def run(self):
         app = dash.Dash()
 
-        #TODO: arrumar esse STATIC_PATH e vê qual path é o verdadeiro
-        #TODO: conferir se roda assim, se sim, colcoar como variavel em config
-        #STATIC_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'static')
-        # STATIC_PATH = '/home/pi/dashboard/lib/static'
-
         app.css.config.serve_locally = True
         app.scripts.config.serve_locally = True
 
@@ -33,7 +28,8 @@ class siteAPP(Thread):
                 html.Div(children="Residência", className="header"),
                 html.Div(children=graficos.linha('Temperatura'), className="g1"),
                 html.Div(children=graficos.linha('Umidade'), className="g2"),
-                html.Div(children=graficos.linha('Luminosidade'), className="g3")
+                html.Div(children=graficos.linha('Luminosidade'), className="g3"),
+                html.Div(children=graficos.linha('Extra'), className="g4")
             ], className="wrapper")
 
         # Cria metódo, para carregar dados novos em carregamento de página
@@ -41,7 +37,7 @@ class siteAPP(Thread):
 
         @app.server.route('/static/<resource>')
         def serve_static(resource):
-            return send_from_directory('/home/pi/dashboard/lib/static', resource)
+            return send_from_directory(config.ARQ['static'], resource)
 
         app.run_server(host='0')
         # app.run_server(port=8050, host='0', debug=True)

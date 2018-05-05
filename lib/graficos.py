@@ -82,7 +82,7 @@ def linha(tipo, horas=config.GRA['spam']):
                            "borderwidth": 0,
                            "buttons": [
                                {
-                                   "label": "reset",
+                                   "label": "Resetar",
                                    "step": "all"
                                },
                                {
@@ -135,5 +135,6 @@ def linha(tipo, horas=config.GRA['spam']):
                        "type": "linear",
                        "zeroline": True
                    }
-                   }
+                   },
+        'config': {"displayModeBar": False}
     })

@@ -1,15 +1,19 @@
-.wrapper {
+body {
   margin: 0;
-  position: relative;
-  width: 100%;
+  padding: 0;
+  width 100%;
+  height: 100%;
+}
+
+.wrapper {
   display: grid;
-  grid-gap: 20px 10px;
   grid-template-rows: 60px auto;
   grid-template-areas:
     "header"
     "grafico1"
     "grafico2"
-    "grafico3";
+    "grafico3"
+    "grafico4";
 }
 
 @media only screen and (min-width: 1000px)  {
@@ -17,7 +21,8 @@
     grid-template-areas:
       "header header"
       "grafico1 grafico1"
-      "grafico2 grafico3";
+      "grafico2 grafico3"
+      "grafico4 grafico4";
   }
 }
 
