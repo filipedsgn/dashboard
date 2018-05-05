@@ -7,6 +7,7 @@ import pandas as pd
 
 from lib import config, erro
 
+# TODO: criar link simbolico em documentos
 
 def bkup():
     # Cria diretório de backup e dados caso não exista
