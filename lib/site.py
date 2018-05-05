@@ -22,7 +22,7 @@ class siteAPP(Thread):
         #TODO: arrumar esse STATIC_PATH e vê qual path é o verdadeiro
         #TODO: conferir se roda assim, se sim, colcoar como variavel em config
         #STATIC_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'static')
-        STATIC_PATH = '/home/pi/dashboard/lib/static'
+        # STATIC_PATH = '/home/pi/dashboard/lib/static'
 
         app.css.config.serve_locally = True
         app.scripts.config.serve_locally = True
