@@ -75,6 +75,7 @@
 #'pFS': 32767,
 #'nFS': 32768,
 
+# Potenciometro limites (ganho=1) Range= 14 ~ 26445
 
 # TODO: configurar ganho
 
@@ -84,10 +85,10 @@ ADC = {
     'umidCH': 1,
     'lumiCH': 2,
     'extrCH': 3,
-    'tempConfig': (0, 32767, 0, 100),
-    'umidConfig': (0, 32767, 0, 100),
-    'lumiConfig': (0, 32767, 0, 100),
-    'extrConfig': (0, 32737, 0, 100),
+    'tempConfig': (14, 26445, 0, 100),
+    'umidConfig': (14, 26445, 0, 100),
+    'lumiConfig': (14, 26445, 0, 100),
+    'extrConfig': (14, 26445, 0, 100),
 }
 
 ALR = {
