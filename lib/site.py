@@ -28,7 +28,7 @@ class siteAPP(Thread):
         app.scripts.config.serve_locally = True
 
         def homepage():
-            html.Div([
+            return html.Div([
                 html.Link(rel='stylesheet', href='/static/stylesheet.css'),
                 html.Div(children="Residência", className="header"),
                 html.Div(children=graficos.linha('Temperatura'), className="g1"),
