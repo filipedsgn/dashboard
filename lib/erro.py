@@ -6,11 +6,7 @@ import pandas as pd
 from lib import info, config
 
 
-# ERROS
-# 1 Não existe arquivo de log de erro (erro.py)
-# 2 Arquivo de dados inexistente (captura.py)
-
-# TODO: adicionar alerta na página principal
+# TODO:
 def tipo(erro):
     # Captura tempo atual para registro de erro
     agora = dt.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
@@ -21,12 +17,12 @@ def tipo(erro):
         (pd.DataFrame({'Cod': 1, 'Erro': 'Log de erro criado'
                        }, index=[agora])).to_csv(config.ARQ['log'])
 
+    # Erro de arquivo de dados inexistente
     elif erro == 2:
         info.alerta = True
         (pd.DataFrame({'Cod': 2, 'Erro': 'Arquivo de dados inexistente'
                        }, index=[agora])).to_csv(config.ARQ['log'], header=False, mode='a')
 
-    # TODO: implementar
     elif erro == 4:
         info.alerta = True
         (pd.DataFrame({'Cod': 4, 'Erro': 'Não foi possível estabelecer comunicação com a rede local'

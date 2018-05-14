@@ -2,8 +2,7 @@ import dash_core_components as dcc
 import pandas as pd
 
 from lib import config
-# TODO: ver locais onde tem parenteses encapsulando objetos, desnecessariamente
-# TODO: spam converter para int() senão dá erro
+
 
 def linha(tipo, horas=config.GRA['spam']):
     # Quantidade de amostras no intervalo informado
@@ -33,7 +32,6 @@ def linha(tipo, horas=config.GRA['spam']):
         _minimo = config.GRA['extrMin']
         _maximo = config.GRA['extrMax']
 
-    # TODO: erro quando inicia e não tem arquivo de dados no local
     df = pd.read_csv(config.ARQ['dados'], index_col=['Tempo'], usecols=['Tempo', tipo]).tail(spam)
 
     return dcc.Graph(id=tipo, figure={
@@ -137,4 +135,4 @@ def linha(tipo, horas=config.GRA['spam']):
                    }
                    },
         'config': {"displayModeBar": False}
-    })
+    }, style={'width': '100%'})

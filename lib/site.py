@@ -1,6 +1,3 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-
 from lib import config, graficos
 
 import plotly.plotly as py
@@ -12,13 +9,15 @@ from flask import send_from_directory
 import os
 from threading import Thread
 
-class siteAPP(Thread):
+
+class siteApp(Thread):
     def __init__(self):
         super().__init__()
 
     def run(self):
         app = dash.Dash()
 
+        # Utilização de formatação de página de web com arquivos locais
         app.css.config.serve_locally = True
         app.scripts.config.serve_locally = True
 
@@ -35,9 +34,9 @@ class siteAPP(Thread):
         # Cria metódo, para carregar dados novos em carregamento de página
         app.layout = homepage()
 
+        # Método para utilização de arquivos de formatação de página utilizando arquivos locais
         @app.server.route('/static/<resource>')
         def serve_static(resource):
             return send_from_directory(config.ARQ['static'], resource)
 
         app.run_server(host='0')
-        # app.run_server(port=8050, host='0', debug=True)

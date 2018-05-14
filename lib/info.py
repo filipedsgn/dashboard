@@ -9,8 +9,6 @@ from RPi import GPIO
 from lib import config
 
 
-# TODO: Mudar o nome do arquivo
-
 class Led(Thread):
     def __init__(self):
         super().__init__()
@@ -47,27 +45,12 @@ class Camera(Thread):
 
     @staticmethod
     def foto():
-        # TODO: salvar em diretorio especifico
-        # TODO: deixar em aberto ou singleshots?
-        # TODO: fast shutter?
-        # TODO: configurar modos
-
         # Criar diretório de fotos caso não existir
         pathlib.Path(config.ARQ['fotos']).mkdir(parents=True, exist_ok=True)
 
         # Tira foto
         subprocess.run(['raspistill', '-a', '12', '-md', '1', '-o', config.ARQ['fotos'] + '/' +
                         dt.datetime.now().strftime('%Y-%m-%dT%H:%M:%S') + '.jpg', '-n', '-t', '1000'])
-
-        # TODO: implementar isso aqui
-
-    '''    
-    @staticmethod
-    def video(self, tempo):
-        agora = dt.datetime.now().strftime('%Y-%m-%dT%H:%M:%S')
-
-        subprocess.run(['raspivid', '-a', '12', agora, '.h264', '-n'])
-    '''
 
     def run(self):
         pass

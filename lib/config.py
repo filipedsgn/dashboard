@@ -1,6 +1,4 @@
 # Arquivo de configuração
-# TODO: completar com o restante das configurações
-
 # ------------------------------------------------------
 # (ADC) Ganho:
 # 2/3 = +/-6.144V
@@ -26,7 +24,6 @@
 # (ADC - extrCH) Canal do ADC conectado ao sensor extra
 # Padrão: 3
 
-# TODO: arrumar aqui os limites do adc
 # (ADC - tempConfig) Parâmetros de configuração ADC da temperatura
 # min_ADC - max_ADC - min_temp - max_temp
 # Padrão: (0, 100, 0, 100)
@@ -70,15 +67,6 @@
 # (ARQ - dadosBkupDir) Diretório de backup de dados
 # Padrão: /home/pi/BACKUP/dashboard/dados
 # ------------------------------------------------------
-
-# Algo do conversor
-#'pFS': 32767,
-#'nFS': 32768,
-
-# Potenciometro limites (ganho=1) Range= 14 ~ 26445
-
-# TODO: configurar ganho
-
 ADC = {
     'amostragem': 5,
     'tempCH': 0,
@@ -123,6 +111,6 @@ GRA = {
     'lumiCol': 'rgb(50, 147, 111)',
     'extrMax': 1000,
     'extrMin': 0,
-    'extriSuf': r' %',
+    'extrSuf': r' %',
     'extrCol': 'rgb(17, 138, 178)',
 }

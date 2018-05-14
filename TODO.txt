@@ -31,3 +31,43 @@
 # Simplificar o uso do ADC, muito complexo deve ter jeito mais rapido
 
 # Utilizar stylesheet offline (verificar erro)
+
+BACKUP:
+# Criar link simbolico em documentos
+# BACKUP pegando uma parte anterior para plotar
+# um arquivo do mês e outro normal
+
+CAPTURA:
+# adicionar coluna do sensor de gás (MQ-2), e antes de todos para ter preferência de alerta
+
+CONFIG:
+# configurar ganho
+# completar com o restante das configurações
+# arrumar aqui os limites do adc
+
+ERRO:
+# adicionar alerta na página principal
+# implementar erro de conexão com rede local
+
+GRAFICOS:
+# erro quando inicia e não tem arquivo de dados no local
+
+INFO:
+# salvar em diretorio especifico
+# deixar em aberto ou singleshots?
+# fast shutter?
+# configurar modos
+# implementar vídeo
+    '''
+    @staticmethod
+    def video(self, tempo):
+        agora = dt.datetime.now().strftime('%Y-%m-%dT%H:%M:%S')
+
+        subprocess.run(['raspivid', '-a', '12', agora, '.h264', '-n'])
+    '''
+
+INICIAR:
+# verificar / Definir Timezone
+# a cada mês criar um arquivo novo de BACKUP
+# verificar se quantos sensores estão conectados (valores zeros contínuos)
+# não precisa de dois join, eu acho

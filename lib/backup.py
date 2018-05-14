@@ -7,7 +7,6 @@ import pandas as pd
 
 from lib import config, erro
 
-# TODO: criar link simbolico em documentos
 
 def bkup():
     # Cria diretório de backup e dados caso não exista
@@ -32,12 +31,8 @@ def bkup():
                                                                                            index_label='Tempo')
 
     # Faz uma cópia do arquivo de dados e log para BACKUP
-
     shutil.copy2(config.ARQ['dados'], config.ARQ['dadosBkupDir'] + '/' +
                  dt.datetime.now().strftime('%Y-%m-%dT%H:%M:%S') + '-DAT' + '.csv')
 
     shutil.copy2(config.ARQ['log'], config.ARQ['dadosBkupDir'] + '/' +
                  dt.datetime.now().strftime('%Y-%m-%dT%H:%M:%S') + '-LOG' + '.csv')
-
-# BACKUP pegando uma parte anterior para plotar
-# um arquivo do mês e outro normal

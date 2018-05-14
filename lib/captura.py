@@ -8,8 +8,6 @@ from lib import config
 from lib.adc import ads1115
 
 
-# TODO: adicionar coluna do sensor de gás (MQ-2), e antes de todos para ter preferência de alerta
-
 class Iniciar(Thread):
     def __init__(self):
         super().__init__()

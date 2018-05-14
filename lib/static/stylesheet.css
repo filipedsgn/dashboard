@@ -1,3 +1,5 @@
+# TODO: descobrir onde está ficando a pasta static no raspberry
+
 body {
   margin: 0;
   padding: 0;
@@ -27,10 +29,6 @@ body {
 }
 
 .box {
-  padding: 10px;
-  background-color: #000000;
-  color: #FFFFFF;
-  font-size: 20px;
 }
 
 .header {
@@ -48,4 +46,8 @@ body {
 
 .g3 {
   grid-area: grafico3;
+}
+
+.g4 {
+  grid-area: grafico4;
 }

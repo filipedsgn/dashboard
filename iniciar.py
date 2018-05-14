@@ -3,10 +3,6 @@
 
 from lib import info, captura, backup, site
 
-# Verificar / Definir Timezone
-# A cada mês criar um arquivo novo de BACKUP
-# Verificar se quantos sensores estão conectados (valores zeros contínuos)
-
 # Led indicativo
 led = info.Led()
 led.setDaemon(True)
@@ -29,14 +25,11 @@ capturar.setDaemon(True)
 capturar.start()
 
 # Inicializa a homepage
-siteapp = site.siteAPP()
+siteapp = site.siteApp()
 siteapp.setDaemon(True)
 siteapp.start()
 
-# TODO: não precisa desses dois join, eu acho
+# Executar programa indefinidamente
 while True:
     capturar.join()
     site.join()
-
-# Inicializa o app
-# app()
